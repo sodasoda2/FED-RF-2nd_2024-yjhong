@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 6px;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.header-button {
+    float: right;
+}
+
+.logo {    
+    height: 150px;
+    width: 120px;
+    max-height: 100%;
+    max-width: 100%;
+}
