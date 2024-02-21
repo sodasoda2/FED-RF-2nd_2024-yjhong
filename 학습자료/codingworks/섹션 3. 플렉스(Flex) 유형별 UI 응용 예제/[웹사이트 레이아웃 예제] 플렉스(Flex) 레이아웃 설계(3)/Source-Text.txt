@@ -1,0 +1,11 @@
+registeration
+
+Login in with Facebook
+Login in with Twitter
+Login in with Google
+
+user name
+E-mail
+Password
+
+log in

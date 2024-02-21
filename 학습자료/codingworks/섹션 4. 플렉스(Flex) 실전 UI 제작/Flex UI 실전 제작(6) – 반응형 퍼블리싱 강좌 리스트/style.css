@@ -1,0 +1,140 @@
+/* Google Web Fonts CDN */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+
+/* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+  color: #222;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+/* Reset CSS */
+a { 
+  text-decoration: none; 
+  color: #222; 
+}
+h1,h2,h3,h4,h5,h6 { 
+  margin: 0; 
+  font-weight: normal; 
+}
+button { 
+  cursor: pointer; 
+  outline: none; 
+}
+input,textarea,select { 
+  outline: none; 
+}
+
+/* Section */
+section {
+  width: 1200px;
+  margin: auto;
+}
+.class-header {}
+.class-header h1 {
+  font-size: 32px;
+}
+.class-header p {
+  margin-bottom: 30px;
+}
+.class-header h1:after {
+  content:"\f105";
+  font-family: fontawesome;
+  margin-left: 10px;
+  color: #555;
+}
+
+/* Items */
+.items {
+  display: flex;
+  justify-content: space-between;
+}
+.item {
+  /* flex: 1;
+  margin-right: 10px; */
+  width: 290px;
+}
+/* .item:last-child {
+  margin-right: 0;
+} */
+
+/* Item */
+.item {}
+.item img {
+  width: 100%;
+}
+.item h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.category {
+  font-weight: bold;
+  color: #0084ff;
+}
+.item p {
+  margin: 5px 0;
+}
+.item p .fa {
+  color: gold;
+}
+.item p em {
+  font-style: normal;
+  font-size: 13px;
+}
+.price {
+  font-weight: bold;
+  color: royalblue;
+  display: block;
+  margin-bottom: 5px;
+}
+.badge {
+  background-color: #f6d5ea;
+  font-size: 14px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.badge.only {
+  background-color: #d1ebe0;
+}
+.item.event h4 {
+  color: red;
+  margin-bottom: 20px;
+}
+.item.event img {
+  border: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+  section {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  .items {
+    flex-direction: column;
+  }
+  .item {
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  .item:nth-child(1) {
+    order: 2;
+  }
+  .item:nth-child(2) {
+    order: 3;
+  }
+  .item:nth-child(3) {
+    order: 4;
+  }
+  .item:nth-child(4) {
+    order: 1;
+  }
+}

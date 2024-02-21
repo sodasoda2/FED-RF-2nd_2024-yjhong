@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 95vh;
+}
+.parent {
+  /* border: 2px solid blue; */
+  display: flex;
+  flex-direction: column;
+}
+.child {
+  background-color: yellowgreen;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+  margin: 3px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
