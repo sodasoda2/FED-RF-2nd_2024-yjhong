@@ -154,7 +154,13 @@
         // 변경대상 : #name
         // 선택요소에 html넣기 : innerHTML속성에 할당
         // 전체문서.가져와아이디요소(아이디명).html넣기
-        document.getElementById("name").innerHTML = '<img src="./images/kim.png" alt="김비서가 왜 그럴까">';
+        document.getElementById("name").innerHTML =
+          '<img src="./images/kim.png" alt="김비서가 왜 그럴까">';
+
+        // 콘솔에 아이디요소 찍기
+        console.log(document.getElementById("name"));
+        // 아이디 요소는 한번에 요소를 선택함
+
 
         // 3. CSS 변경하기 ////////////
         // 변경대상 : .pbox
@@ -165,6 +171,10 @@
 
         // 콘솔에 선택요소 찍기
         console.log(document.getElementsByClassName("pbox"));
+        // 여러개를 만들 수 있는 클래스,태그 선택은
+        // HTML Collection에 담는다!
+        // 그래서 구체적인 요소를 선택할때는 item(순번)/[순번]
+        // 를 사용하여 선택함!
 
         // 구체적인 클래스 요소 선택하기 : item(n)
         // 반복적으로 사용되는 요소는 특정 공간에
@@ -174,7 +184,9 @@
         // 선언과 동시에 할당행위를 통해 값을 저장한다!
         // 변수는 여기를 '봐!' var 로 선언
         // var 변수명 = 값
-        var 피박스 = document.getElementsByClassName("pbox").item(0);
+        var 피박스 = 
+        document.getElementsByClassName("pbox")[0];
+        // document.getElementsByClassName("pbox").item(0);
 
         // 변수를 사용하는 이유?
         // - 변수는 재사용
@@ -187,7 +199,8 @@
         // - var는 variable(변수)라는 단어에서 나온말!
 
         // 3-1. 배경이미지 넣기
-        피박스.style.background = "url(./images/kimbs.jpg) no-repeat center/cover";
+        피박스.style.background =
+          "url(./images/kimbs.jpg) no-repeat center/cover";
 
         // 3-2. 글자색 변경하기
         피박스.style.color = "lime";
@@ -220,8 +233,8 @@
 
         // 3-10. 트랜스폼 변경 :
         // 중앙이동, 360도 회전, 크기변경
-        피박스.style.transform = `translate(-50%,-50%)
-            rotate(360deg)
+        피박스.style.transform = `translate(-50%,-50%) 
+            rotate(360deg) 
             scale(1.3)`;
 
         // 3-11. 전체 배경색 바꾸기
@@ -229,27 +242,26 @@
         // JS에서 body는 특별히 취급하여
         // document.body
         var 바디 = document.body;
-        바디.style.backgroundColor = 'lightgreen';
-        바디.style.transition = '5s 3s';
-
+        바디.style.backgroundColor = "lightgreen";
+        바디.style.transition = "5s 3s";
 
         /*************************************** 
-                [ JS의 요소 선택 메서드 ]
+            [ JS의 요소 선택 메서드 ]
 
-                1. id 선택 메서드 : getElementById
-                document.getElementById(아이디명)
-     
-                2. class 선택 메서드 : getElementsByClassName
-                document.getElementsByClassName(클래스명)
-                ((하위속성))
-                length - 클래스 개수
-                기tem(순번) - 구체적인 순번요소 선택(0부터)
-     
-                3. tag 선택 메서드 : getElementsByTagName
-                document.getElementsByTagName(태그명)
-                ((하위속성))
-                length - 클래스 개수
-                item(순번) - 구체적인 순번요소 선택(0부터)
+            1. id 선택 메서드 : getElementById
+            document.getElementById(아이디명)
+    
+            2. class 선택 메서드 : getElementsByClassName
+            document.getElementsByClassName(클래스명)
+            ((하위속성))
+            length - 클래스 개수
+            item(순번) - 구체적인 순번요소 선택(0부터)
+    
+            3. tag 선택 메서드 : getElementsByTagName
+            document.getElementsByTagName(태그명)
+            ((하위속성))
+            length - 클래스 개수
+            item(순번) - 구체적인 순번요소 선택(0부터)
 
             [ HTML 컬렉션은 무엇인가? ]
             - DOM을 통하여 선택된 다중선택요소인
@@ -272,6 +284,35 @@
 
             ***************************************/
       } //////// 김비서 함수 ////////////
+
+      /**************************************** 
+        함수명 : 맘대로해라
+        기능 : 선택요소의 style과 html을 변경함
+      ****************************************/
+     function 맘대로해라(헐,헉스){
+        // 헐 - .원이야 순번 / 헉스 - 그림제목
+
+        // 1. 함수호출확인
+        console.log("니맘대로하세요~!",헐,헉스);
+
+        // 2. 대상선정 : .박스야 .원이야
+        var 멍청이 = document.querySelector('.박스야 .원이야')
+        // 주의: 따옴표 안은 CSS선택자 문법을 써야함!!
+
+        console.log(멍청이);
+
+        // 3. 변경내용 : 트랜지션으로 화면 왼쪽하단으로
+        // 나열 되도록 위치를 바꾸고 모양을 변경하고
+        // 작품명을 하단에 나오게 한다!
+
+        // 3-1. 트랜지션
+        멍청이.style.transition = '1s ease-out';
+
+        // 3-2. 위치이동 : top, right
+        멍청이.style.top = 'calc(100% - 200px)';
+        멍청이.style.right = 'calc(100% - 200px)';
+
+     } ///////// 맘대로해라 함수 ///////////////
     </script>
     <style>
       html,
@@ -316,6 +357,34 @@
       p.pbox {
         z-index: 1;
       }
+
+      /* 원모양 */
+      .원이야{
+        position: absolute;
+        top: 0;
+        right: 0;
+        /* 부모는? window */
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        /* 배경공통 */
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* 보더박스 : 보더,패딩포함박스 */
+        box-sizing: border-box;
+      }
+      /* 원모양 개별셋팅 */
+      .원이야:nth-child(1){
+        right: 400px;
+        background-image: url(./images/01.png);
+      }
+      .원이야:nth-child(2){
+        right: 200px;
+        background-image: url(./images/02.png);
+      }
+      .원이야:nth-child(3){
+        background-image: url(./images/03.png);
+      }
     </style>
   </head>
   <body>
@@ -325,6 +394,19 @@
       도대체
       <span id="name"> </span>
     </p>
+
+    <!-- 원모양 박스 -->
+    <div class="박스야">
+      <!-- 원모양 -->
+      <div class="원이야" 
+      onmouseover="맘대로해라(0,'별이 빛나는 밤')"></div>
+      <div class="원이야" 
+      onmouseover="맘대로해라(1,'론강의 별이 빛나는 밤')"></div>
+      <div class="원이야" 
+      onmouseover="맘대로해라(2,'밤의 카페 테라스')"></div>
+    </div>
+
+
 
     <!-- <div class="pbox"></div>
     <a href="" class="pbox"></a>
