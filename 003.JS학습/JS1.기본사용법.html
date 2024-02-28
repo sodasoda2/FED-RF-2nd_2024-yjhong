@@ -296,21 +296,101 @@
         console.log("니맘대로하세요~!",헐,헉스);
 
         // 2. 대상선정 : .박스야 .원이야
-        var 멍청이 = document.querySelector('.박스야 .원이야')
-        // 주의: 따옴표 안은 CSS선택자 문법을 써야함!!
+        var 멍청이 = 
+        document.querySelectorAll('.박스야 .원이야');
+        // 주의: 따옴표 안은 CSS선택자 문법을 써야함!
 
-        console.log(멍청이);
+        // 기존 기본 선택방식이 너무 길다!
+        // 따라서 간단하 CSS 선택자 선택법이 있다!
+        // 1. querySelector(CSS선택자) - 하나만 바로 선택
+        // 2. querySelectorAll(CSS선택자) - 컬렉션에 담는다
+        // -> 2번방식은 .item(순번)/[순번]으로 세부선택
+        // -> length로 컬렉션 길이도 알 수 있음
+
+        // document.getElementsByClassName('박스야').item(0)
+        // .getElementsByClassName('원이야');
+
+        console.log(멍청이,멍청이.length);
 
         // 3. 변경내용 : 트랜지션으로 화면 왼쪽하단으로
         // 나열 되도록 위치를 바꾸고 모양을 변경하고
         // 작품명을 하단에 나오게 한다!
 
+        // 한번에 3개가 컬렉션에 있으므로
+        // 구체적인 순번으로 선택해 준다!
+        // 헐 전달변수는 순번값이 있다!
+        멍청이 = 멍청이.item(헐);
+
         // 3-1. 트랜지션
-        멍청이.style.transition = '1s ease-out';
+        멍청이.style.transition = 
+        `1s ease-out,
+        border-radius .5s ease-in-out 1s
+        `;
 
         // 3-2. 위치이동 : top, right
-        멍청이.style.top = 'calc(100% - 200px)';
-        멍청이.style.right = 'calc(100% - 200px)';
+        멍청이.style.top = 
+        'calc(100% - 200px)';
+        멍청이.style.right = 
+        'calc(100% - 200px - '+헐+'*200px)';
+
+        console.log('calc(100% - 200px - '+헐+'*200px)');
+        console.log('calc(100% - 200px - 헐*200px)');
+
+        /* 
+          [ 문자 데이터와 변수 합치기 ]
+          따옴표를 내부에 2개 넣고 +를 2개 넣고 
+          사이에 변수를 넣으면 중간 변수 삽입됨
+          만약 앞/뒤에 변수를 합칠때는 더하기
+          기호만 사용하면 된다!
+
+          예)
+          var na = '한국';
+          "나는 사람이다" -> "나는 "+na+"사람이다"
+          '나는 사람이다' -> '나는 '+na+'사람이다'
+
+        */
+
+        // 3-3. 원형을 사각형으로 변경
+        멍청이.style.borderRadius = '0';
+
+        // 3-4. 액자 보더 넣기
+        멍청이.style.border = '10px ridge goldenrod';
+
+        // 4-1. html 넣기 : 그림제목
+        멍청이.innerHTML = '<h4>고흐<br>'+헉스+'</h4>';
+
+        // 만들어진 h4태그 확인하기
+        console.log('<h4>고흐<br>'+헉스+'</h4>');
+
+        // 4-2. 넣은 h4요소에 CSS 한번에 넣기
+        // 한번에 CSS를 셋팅하는 방법 : style.cssText 속성
+        // 주의: 상단에서 셋팅된 style.속성명 이 있다면
+        // 한번에 셋팅된 CSS로 모두 덮어써진다!
+        // 백틱(`)을 사용하여 엔터를 허용한 문자표시법을
+        // 사용하여 셋팅한다!
+        멍청이.querySelector('h4').style.cssText =
+        `
+          position: absolute;
+          bottom: 10px;
+          width: 100%;
+          color: #fff;
+          font-size: 14px;
+          text-align: center;
+          margin: 0;
+          padding: 0;
+        `;
+        멍청이.classList.remove('on');
+        // 5. .원이야 클래스 on 제거하여 회전애니 없애기
+        // 대상: .원이야(해당순번)
+        // 멍청이.classList.remove('on'); -> 제거
+        // 멍청이.classList.add('on'); -> 넣기
+        // 멍청이.classList.toggle('on'); -> 넣기/빼기
+        /* 
+          [ JS의 클래스 제어 객체 : classList ]
+          1. 클래스 넣기 : add(클래스명)
+          2. 클래스 빼기 : remove(클래스명)
+          3. 클래스 넣기/빼기 : toggle(클래스명)
+        */
 
      } ///////// 맘대로해라 함수 ///////////////
     </script>
@@ -385,6 +465,23 @@
       .원이야:nth-child(3){
         background-image: url(./images/03.png);
       }
+
+
+      /* .원이야.on 일 경우 애니적용하기! */
+      .원이야.on {
+        /* 애니메이션 키프레임 호출은 animation속성으로! */
+        animation: rotate-ani 5s linear infinite;
+        /* animation: 키프레임이름 시간 가속도 반복횟수; */
+      }
+      /* .원이야 회전 키프레임
+      애니메이션을 위한 장면연출 구역을 키프레임이라고함 */
+      @keyframes rotate-ani {
+        to{/* css나중 상태 */
+          transform: rotate(360deg);
+        }
+      }
+
+
     </style>
   </head>
   <body>
@@ -398,11 +495,11 @@
     <!-- 원모양 박스 -->
     <div class="박스야">
       <!-- 원모양 -->
-      <div class="원이야" 
+      <div class="원이야 on" 
       onmouseover="맘대로해라(0,'별이 빛나는 밤')"></div>
-      <div class="원이야" 
+      <div class="원이야 on" 
       onmouseover="맘대로해라(1,'론강의 별이 빛나는 밤')"></div>
-      <div class="원이야" 
+      <div class="원이야 on" 
       onmouseover="맘대로해라(2,'밤의 카페 테라스')"></div>
     </div>
 
