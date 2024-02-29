@@ -1,0 +1,91 @@
+/* 웹폰트 구글 CDN(Content Delivery Network) */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Bagel+Fat+One&family=Diphylleia&family=Orbit&display=swap");
+
+/* 폰트적용 */
+*{
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 공사중표시 */
+body *{
+  outline: 2px dotted red;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+/* Reset css */
+html,body,h1,h2,ul,ol{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+}
+button{
+  cursor: pointer;
+}
+
+.part{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.top-area{
+  height: 300px;
+}
+
+.main-area{
+  height: 300px;
+}
+.footer-area{
+  height: 300px;
+}
+
+
+.gnd{
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  height: 62px;
+  padding: 0 48px 0 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+.gnd .gnb-nav-menu{
+}
+
+
+.wrap{
+  display: flex;
+  justify-content: center; /* 가로 가운데 정렬 */
+  align-items: center; /* 세로 가운데 정렬 */
+  height: 100vh; /* 뷰포트의 높이를 화면 전체로 설정 */
+}
+.top_util_menu{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 30px;
+  padding: 0 0 2 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.top_util_menu .top-button{
+  font-size: 13px;
+  color: #131313;
+}
+.top_util_menu .top-button:last-child{
+  margin-right: 20px;
+}
+.top_util_menu .divider{
+  font-size: 8px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.logo{
+  border: 1px solid black;
+  height: 130px;
+  width: 150px;
+  margin-top: 20px;
+}
