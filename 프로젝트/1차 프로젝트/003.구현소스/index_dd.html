@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body * {
+        /* outline: 4px dotted darkorchid; */
+      }
+
+      .container {
+        width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+      }
+      header {
+        background-color: tomato;
+        padding: 1em;
+      }
+      section {
+        display: flex;
+      }
+      section article {
+        padding: 40px;
+      }
+      .main {
+        background-color: gainsboro;
+        flex: 8;
+        order: 2;
+      }
+      .left {
+        background-color: wheat;
+        flex: 1;
+        order: 1;
+      }
+      .right {
+        background-color: goldenrod;
+        flex: 1;
+        order: 3;
+      }
+      footer{
+        background-color: teal;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>header</header>
+      <section>
+        <article class="main">main</article>
+        <article class="left">left</article>
+        <article class="right">right</article>
+      </section>
+      <footer>footer</footer>
+    </div>
+  </body>
+</html>

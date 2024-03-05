@@ -3,6 +3,7 @@
 1. 피아노,미술,예체능 구인 구직
 2. 중고 거래
 3. 레슨 코치 및 전문가 도움 서비스
+
 ===============================================================
 
 1.로고 제작 
@@ -10,3 +11,9 @@ https://app.logomaster.ai/ko/edit
 -> 여기서 아이콘 만들고 png로 저장
 https://www.miricanvas.com/v2/design/12xfm8k
 -> 미리캔버스에서 업로드하여 사용 (색상 그라디언트 적용안됨)
+
+===============================================================
+tailwind 사이트 주소 목록
+https://tailwindui.com/components
+https://tailwindcss.com/
+https://www.material-tailwind.com/docs/react/progress-bar
