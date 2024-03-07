@@ -1,14 +1,14 @@
 /* 웹폰트 구글 CDN(Content Delivery Network) */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Bagel+Fat+One&family=Diphylleia&family=Orbit&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Bagel+Fat+One&family=Diphylleia&family=Orbit&display=swap");
 
 /* 폰트적용 */
 * {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 /* 공사중표시 */
 body * {
-  /* outline: 2px dotted red; */
+  outline: 2px dotted plum;
 }
 
 html {
@@ -38,35 +38,51 @@ button {
   cursor: pointer;
 }
 
-/* 상단영역 */
-.banner {
-  display: flex;
-  justify-content: flex-end;
-  flex: 6;
-  border-bottom: 1px solid red;
-  line-height: 40px;
+/* 테스트 영역 */
+.icon-container {
+  display: inline-block; /* 아이콘이 동적으로 움직일 수 있도록 inline-block으로 설정 */
+  transition: transform 0.3s; /* transform 속성에 대한 전환 효과를 설정 */
 }
 
-.lnb a {
-  margin-right: 20px;
+.icon-container:hover {
+  transform: scale(1.2); /* 마우스를 올렸을 때 아이콘 크기를 확대하는 효과 */
 }
 
-.container {
-  width: 1260px;
+/* 재사용 영역 */
+.inner {
+  max-width: 900px;
   margin: 0 auto;
 }
 
-.logo img {
-  height: 56px;
+.divider {
+  border-bottom: 1px solid #e8e8e8;
 }
-nav {
+
+/* 상단영역 */
+.lnb {
   display: flex;
-  margin-top: 20px;
+  justify-content: flex-end;
+  line-height: 32px;
+}
+
+.lnb a {
+  font-size: 13px;
+  margin-left: 20px;
+}
+
+.main {
+  display: flex;
   align-items: center;
+  margin-top: 30px;
 }
 
 .logo {
   flex: 2;
+}
+
+.logo img {
+  height: 46px;
+  vertical-align: middle;
 }
 
 .search {
@@ -74,19 +90,80 @@ nav {
   align-items: center;
   flex: 4;
   height: 50px;
-  /* margin-left: 145px; */
 }
-.search input {
-  width: 250px;
-  height: 25px;
+
+.search .search-input {
+  width: 220px;
+  height: 24px;
   border-radius: 8px;
+  background-image: url("../images/search.png");
+  background-size: 21px;
+  background-position: 5px center; /* 이미지를 왼쪽에서 10px 위치로 정렬 */
+  background-repeat: no-repeat; /* 이미지 반복 없음 */
+  padding-left: 30px; /* 이미지와 텍스트 사이의 여백 설정 */
 }
 
 .auth button {
-  height: 30px;
-  font-size: 17px;
+  font-size: 13px;
+  margin-left: 5px;
 }
 
+.gnb {
+  display: flex;
+  justify-content: start;
+  margin: 55px 0 15px 0;
+}
+
+.gnb li {
+  font-size: 18px;
+  margin-right: 50px;
+}
+
+.gnb li:last-child {
+  margin-right: 0px !important;
+}
+
+.gnb li:nth-child(4) {
+  margin-right: auto;
+}
 /* 메인영역 */
 
+/* 
+  모든 클래스 이름에 "-content"가 포함된 요소에게 
+  flex 및 박스간 여백 설정
+*/
+
+[class*="-content"] {
+  display: flex;
+  gap: 10px;
+}
+
+.intro-content {
+  justify-content: space-between;
+  height: 200px;
+}
+.intro-content .banner {
+  display: flex;
+  align-items: center;
+  flex: 3;
+}
+
+.intro-content .notice {
+  flex: 2;
+  background-color: gainsboro;
+}
+
+.intro-content .banner img {
+  height: 27px;
+  background-color: white;
+  flex: 0 0 1; /* 이미지 크기를 자동으로 설정하지 않도록 설정 */
+}
+
+.intro-content .banner .spacer {
+  flex-grow: 1; /* 공간을 균등하게 분할하여 각 이미지의 양 옆에 공간을 생성합니다. */
+}
+
+.intro-content .banner {
+  background: url(../images/banner_1.jpg) no-repeat center/cover;
+}
 /* 하단영역 */

@@ -2,54 +2,67 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="./css/yjhong.css"
-    />
+    <link rel="stylesheet" href="./css/yjhong.css" />
     <title>레슨모아</title>
   </head>
   <body>
-    <div class="banner">
-      <div class="lnb">
-        <a href="#none"> 고객센터 </a>
-        <a href="#none"> 광고문의 </a>
-        <a href="#none"> 제휴문의 </a>
+    <header>
+      <div class="inner">
+        <div class="lnb">
+          <a href="#none"> 고객센터 </a>
+          <a href="#none"> 광고문의 </a>
+          <a href="#none"> 제휴문의 </a>
+        </div>
       </div>
-    </div>
-    <div class="container">
-      <header>
-        <nav>
+      <div class="divider"></div>
+      <nav class="inner">
+        <div class="main">
           <div class="logo">
             <a href="#none">
               <img src="images/logo.png" />
             </a>
           </div>
           <div class="search">
-            <span class="material-icons"> search </span>
+            <!-- <img src="./images/search.png" alt="" /> -->
             <input
+              class="search-input"
               type="text"
-              placeholder="  검색어를 입력하세요"
+              placeholder="검색어를 입력하세요"
             />
+            <div class="search-icon"></div>
           </div>
           <div class="auth">
             <button>로그인</button>
             <button>회원가입</button>
           </div>
-        </nav>
-        <div class="trigger">
-          <span></span>
-          <span></span>
-          <span></span>
         </div>
-      </header>
-    </div>
+        <ul class="gnb">
+          <li>구인정보</li>
+          <li>강사정보</li>
+          <li>중고거래</li>
+          <li>레슨멘토</li>
+          <li>이력서 등록</li>
+        </ul>
+      </nav>
+      <div class="divider"></div>
+    </header>
+
+    <main>
+      <div class="inner">
+        <div class="intro-content">
+          <div class="banner">
+            <img src="./images/navigate_left.png" alt="" />
+            <div class="spacer"></div>
+            <img src="./images/navigate_right.png" alt="" />
+          </div>
+          <div class="notice"></div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

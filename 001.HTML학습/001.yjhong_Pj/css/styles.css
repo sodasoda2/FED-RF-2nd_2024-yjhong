@@ -1,27 +1,29 @@
 /* 웹폰트 구글CDN(Content Delivery Network) */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Bagel+Fat+One&family=Diphylleia&family=Orbit&display=swap");
 
-*{
+* {
   font-family: "Noto Sans KR", sans-serif;
   box-sizing: border-box;
 }
-html,body,h1{
+html,
+body,
+h1 {
   scroll-behavior: smooth;
 }
 
 /* Reset CSS */
-a{
+a {
   text-decoration: none;
 }
-button{
+button {
   cursor: pointer;
 }
-body{
+body {
   background-color: black;
   margin: 0;
   padding: 0;
 }
-.gnd{
+.gnd {
   display: flex;
   justify-content: space-between;
   color: white;
@@ -29,17 +31,16 @@ body{
   padding: 0 48px 0 48px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
-.gnd .gnb-nav-menu{
+.gnd .gnb-nav-menu {
 }
 
-
-.wrap{
+.wrap {
   display: flex;
   justify-content: center; /* 가로 가운데 정렬 */
   align-items: center; /* 세로 가운데 정렬 */
   height: 100vh; /* 뷰포트의 높이를 화면 전체로 설정 */
 }
-.top_util_menu{
+.top_util_menu {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -47,19 +48,19 @@ body{
   padding: 0 0 2 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
-.top_util_menu .top-button{
+.top_util_menu .top-button {
   font-size: 13px;
   color: #131313;
 }
-.top_util_menu .top-button:last-child{
+.top_util_menu .top-button:last-child {
   margin-right: 20px;
 }
-.top_util_menu .divider{
+.top_util_menu .divider {
   font-size: 8px;
   margin-left: 12px;
   margin-right: 12px;
 }
-.logo{
+.logo {
   border: 1px solid black;
   height: 130px;
   width: 150px;
