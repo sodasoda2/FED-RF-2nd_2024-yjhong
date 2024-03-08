@@ -8,7 +8,7 @@
 
 /* 공사중표시 */
 body * {
-  outline: 2px dotted plum;
+  outline: 1px dotted plum;
 }
 
 html {
@@ -20,6 +20,11 @@ html,
 body,
 h1,
 h2,
+h3,
+h4,
+h5,
+h6,
+li,
 ul,
 ol {
   margin: 0;
@@ -27,7 +32,8 @@ ol {
 }
 
 ul,
-li {
+li,
+ol {
   list-style: none;
 }
 
@@ -48,7 +54,7 @@ button {
   transform: scale(1.2); /* 마우스를 올렸을 때 아이콘 크기를 확대하는 효과 */
 }
 
-/* 재사용 영역 */
+/* 공통 영역 */
 .inner {
   max-width: 900px;
   margin: 0 auto;
@@ -56,6 +62,11 @@ button {
 
 .divider {
   border-bottom: 1px solid #e8e8e8;
+}
+
+.c-box {
+  border: 1px solid rgba(0, 0, 0, 0); /* 테두리 설정 (투명도 조절) */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* 그림자 설정 (투명도 조절) */
 }
 
 /* 상단영역 */
@@ -129,41 +140,106 @@ button {
 /* 메인영역 */
 
 /* 
-  모든 클래스 이름에 "-content"가 포함된 요소에게 
-  flex 및 박스간 여백 설정
+  모든 클래스 이름에 "-content"가 포함된 요소에게 flex 및 박스간 여백 설정
 */
-
-[class*="-content"] {
-  display: flex;
+[class*="-layer"] {
   gap: 10px;
 }
 
-.intro-content {
-  justify-content: space-between;
+.bn-layer {
+  display: flex;
   height: 200px;
+  padding-top: 15px;
 }
-.intro-content .banner {
+.bn-layer .banner {
   display: flex;
   align-items: center;
-  flex: 3;
+  flex: 8;
 }
 
-.intro-content .notice {
-  flex: 2;
-  background-color: gainsboro;
+.bn-layer .notice {
+  flex: 4;
 }
 
-.intro-content .banner img {
-  height: 27px;
-  background-color: white;
-  flex: 0 0 1; /* 이미지 크기를 자동으로 설정하지 않도록 설정 */
+.banner {
+  background: url(../images/banner_1.jpg) no-repeat center/cover;
 }
 
-.intro-content .banner .spacer {
+.banner .spacer {
   flex-grow: 1; /* 공간을 균등하게 분할하여 각 이미지의 양 옆에 공간을 생성합니다. */
 }
 
-.intro-content .banner {
-  background: url(../images/banner_1.jpg) no-repeat center/cover;
+.notice .notice-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 6px 0;
 }
+
+.notice .notice-title span {
+  font-size: 14px;
+  padding: 0 8px;
+}
+
+.notice .notice-content {
+  font-size: 14px;
+  padding: 8px 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-weight: medium;
+}
+
+.np-layer {
+  display: flex;
+  margin-top: 20px;
+  height: 240px;
+}
+
+.new-layout,
+.pop-layout {
+  flex: 6;
+}
+
+.new-title,
+.pop-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-title h3,
+.pop-title h3 {
+  padding-left: 6px;
+}
+
+.new-title span,
+.pop-title span {
+  padding-right: 6px;
+  font-size: 13px;
+}
+
+.new-content {
+  border: 1px solid #000;
+  height: 300px;
+}
+
+.new-content .new-category {
+  display: flex;
+  text-align: center;
+  margin-top: 10px;
+  border-bottom: 1px solid #000;
+}
+
+.new-content .new-category span:nth-child(1) {
+  flex: 2;
+}
+
+.new-content .new-category span:nth-child(2) {
+  flex: 3;
+}
+
+.new-content .new-category span:nth-child(3) {
+  flex: 7;
+}
+
 /* 하단영역 */
