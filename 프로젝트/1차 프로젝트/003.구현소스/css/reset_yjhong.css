@@ -15,7 +15,8 @@ h5,
 h6,
 li,
 ul,
-ol {
+ol,
+p {
   margin: 0;
   padding: 0;
 }

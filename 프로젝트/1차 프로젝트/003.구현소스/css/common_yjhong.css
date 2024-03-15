@@ -1,9 +1,15 @@
+/* 웹폰트 구글 CDN(Content Delivery Network) */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Bagel+Fat+One&family=Diphylleia&family=Orbit&display=swap");
+
 /* 폰트적용 */
 * {
   font-family: "Noto Sans KR", sans-serif;
 }
 
 /* 공통 영역 */
+.container {
+  height: 2000px;
+}
 .inner {
   max-width: 1200px;
   margin: 0 auto;

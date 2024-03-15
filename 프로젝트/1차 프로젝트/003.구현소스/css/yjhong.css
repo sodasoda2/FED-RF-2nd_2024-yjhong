@@ -1,20 +1,17 @@
 @charset "utf-8";
 
-/* 웹폰트 구글 CDN(Content Delivery Network) */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Bagel+Fat+One&family=Diphylleia&family=Orbit&display=swap");
+/* Rest CSS */
+@import url(./reset_yjhong.css);
+
+/* 12 Grid CSS */
+@import url(./grid_12_flex_yjhong.css);
 
 /* Common CSS */
 @import url(./common_yjhong.css);
 
-/* Rest CSS */
-@import url(./reset_yjhong.css);
-
-/* 12그리드 불러오기 */
-@import url(./grid_12_flex_yjhong.css);
-
 /* 공사중표시 */
 body * {
-  /* outline: 1px dotted plum; */
+  /* outline: 1px dashed plum; */
 }
 
 /******************* 상단영역 *******************/
@@ -124,19 +121,18 @@ body * {
 }
 
 /* 최신글, 인기글 영역 */
-.new-title,
-.pop-title {
+.cont-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   /* border-bottom: 1px solid #e3cfee; */
   line-height: 40px;
-  padding-bottom: 2px;
+  padding-bottom: 10px;
 }
 
-.new-title span,
-.pop-title span {
+.cont-title span {
   font-size: 13px;
+  text-decoration: underline;
 }
 
 .new-content .new-category,
@@ -169,27 +165,41 @@ body * {
 
 /* 상품 목록 */
 
-/* 상품 */
+/* 최근 중고거래 상품 다중박스 */
 .products {
   display: flex;
   justify-content: space-between;
 }
 
+/* 최근 중고거래 상품 단일박스 */
 .product {
+  border: 1px solid #c2c2c2;
+}
+
+/* 최근 중고거래 상품 이미지 */
+.product img {
+  height: 32vh;
+}
+
+/* 최근 중고거래 상품 텍스트 전체 */
+.product h3,
+p {
+  padding-left: 6px;
+}
+
+.product .pay {
+  padding: 5px 0 10px 6px;
+  border-bottom: 1px solid #c2c2c2;
+}
+
+.product .location {
+  padding: 5px 0 5px 6px;
+  border-bottom: 1px solid #c2c2c2;
+}
+
+.lesson {
+  display: flex;
   border: 1px solid #000;
 }
-
-/* 상품 이미지 */
-.product img {
-  height: 180px;
-}
-
-/* 상품 정보 */
-
-/* 상품 제목 */
-
-/* 상품 가격 */
-
-/* 전체보기 버튼 */
 
 /****************** 하단영역 *******************/
