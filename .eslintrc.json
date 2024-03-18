@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "indent": ["error", 2],
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
+    "no-trailing-spaces": ["error"],
+    "comma-dangle": ["error", "never"]
+  },
+  "plugins": ["html"]
+}

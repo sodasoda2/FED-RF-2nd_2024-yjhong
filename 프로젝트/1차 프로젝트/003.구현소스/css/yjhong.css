@@ -15,6 +15,7 @@ body * {
 }
 
 /******************* 상단영역 *******************/
+
 .lnb {
   display: flex;
   justify-content: flex-end;
@@ -178,7 +179,7 @@ body * {
 
 /* 최근 중고거래 상품 이미지 */
 .product img {
-  height: 32vh;
+  height: 200px;
 }
 
 /* 최근 중고거래 상품 텍스트 전체 */
@@ -197,9 +198,60 @@ p {
   border-bottom: 1px solid #c2c2c2;
 }
 
-.lesson {
+.mentos {
   display: flex;
+  justify-content: space-between;
+  gap: 40px !important;
+}
+
+.mento {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 2px 25px;
+}
+
+.mento-title {
   border: 1px solid #000;
+  text-align: center;
+  line-height: 46px;
+  background: linear-gradient(to top, #b1b5fc, #f1baff);
+  border: 1px solid #c8c8c8;
+  filter: brightness(110%);
+}
+
+.mento-cont {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #efefef;
+}
+
+.mento-cont span {
+  font-size: 25px;
+}
+
+.mento-cont img:nth-child(1) {
+  max-height: 38px;
+  margin-right: 12px;
+}
+
+.mento-cont img:nth-child(3) {
+  max-height: 70px;
+  margin-left: auto;
+}
+
+.teacher table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.teacher th,
+.teacher td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.teacher td:nth-child(2) {
+  text-align: left;
 }
 
 /****************** 하단영역 *******************/
