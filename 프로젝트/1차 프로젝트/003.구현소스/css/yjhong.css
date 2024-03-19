@@ -34,19 +34,20 @@ body * {
 }
 
 .logo img {
-  height: 45px;
+  height: 46px;
   vertical-align: middle;
 }
 
 .search .search-input {
-  width: 220px;
-  height: 24px;
+  width: 100%;
+  height: 34px;
   border-radius: 8px;
   background-image: url("../images/search.png");
   background-size: 21px;
-  background-position: 5px center; /* 이미지를 왼쪽에서 10px 위치로 정렬 */
+  background-position: 7px center; /* 이미지를 왼쪽에서 10px 위치로 정렬 */
   background-repeat: no-repeat; /* 이미지 반복 없음 */
-  padding-left: 30px; /* 이미지와 텍스트 사이의 여백 설정 */
+  padding-left: 35px; /* 이미지와 텍스트 사이의 여백 설정 */
+  font-size: 16px;
 }
 
 .auth {
@@ -59,26 +60,26 @@ body * {
   margin-left: 5px;
 }
 
-.gnb {
+.top-menu {
   display: flex;
   justify-content: start;
-  margin: 55px 0 15px 0;
+  margin: 60px 0 15px 0;
 }
 
-.gnb li {
-  font-size: 18px;
+.top-menu li {
+  font-size: 19px;
   margin-right: 50px;
 }
 
-.gnb li:hover {
-  color: red;
+.top-menu li:hover {
+  cursor: pointer;
 }
 
-.gnb li:last-child {
+.top-menu li:last-child {
   margin-right: 0px !important;
 }
 
-.gnb li:nth-child(4) {
+.top-menu li:nth-child(4) {
   margin-right: auto;
 }
 
@@ -87,14 +88,9 @@ body * {
 /* 배너 이미지 */
 .banner {
   background: url(../images/banner_1.jpg) no-repeat center/cover;
-  height: 145px;
   border: 1px solid #a7a7a7;
+  height: 150px;
 }
-
-/* 공간을 균등하게 분할하여 각 이미지의 양 옆에 공간을 생성합니다. */
-/* .banner .spacer {
-  flex-grow: 1;
-} */
 
 /* 공지사항 타이틀 */
 .notice .notice-title {
@@ -105,19 +101,39 @@ body * {
   padding: 6px 0;
 }
 
-.notice .notice-title span:nth-child(1) {
-  font-size: 14px;
-  padding: 0 8px;
-  font-weight: bold;
+/* Additional CSS styles can be added here */
+.swiper-container {
+  width: 100%;
+  height: 500px;
 }
-.notice .notice-title span:nth-child(2) {
-  font-size: 11px;
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.swiper-slide img {
+  max-width: 100%;
+}
+
+.notice .notice-title h4 {
+  padding: 0 8px;
+}
+.notice .notice-title span {
+  font-size: 12px;
+  text-decoration: underline;
   padding: 0 8px;
 }
 
 .notice .notice-content {
   font-size: 14px;
   padding: 8px 8px;
+}
+.notice .notice-content:nth-child(n):not(:last-child) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -132,7 +148,7 @@ body * {
 }
 
 .cont-title span {
-  font-size: 13px;
+  font-size: 14px;
   text-decoration: underline;
 }
 
@@ -140,13 +156,17 @@ body * {
 .pop-content .pop-category {
   display: flex;
   text-align: center;
-  border-bottom: 1px solid #0000000b;
   text-overflow: ellipsis;
   padding: 6px 0;
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   /* white-space: nowrap; */
+}
+
+.new-content .new-category:nth-child(n):not(:last-child),
+.pop-content .pop-category:nth-child(n):not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .new-content .new-category span:nth-child(1),
@@ -174,7 +194,7 @@ body * {
 
 /* 최근 중고거래 상품 단일박스 */
 .product {
-  border: 1px solid #c2c2c2;
+  border: 1px solid #e7e7e7;
 }
 
 /* 최근 중고거래 상품 이미지 */
@@ -184,18 +204,27 @@ body * {
 
 /* 최근 중고거래 상품 텍스트 전체 */
 .product h3,
-p {
+.product p {
   padding-left: 6px;
 }
 
 .product .pay {
   padding: 5px 0 10px 6px;
-  border-bottom: 1px solid #c2c2c2;
+  border-bottom: 1px solid #e7e7e7;
 }
 
 .product .location {
+  display: flex;
+  align-items: center;
+}
+
+.product .location i {
+  padding: 0 2px 0 8px;
+  font-size: 18px;
+}
+
+.product .location p {
   padding: 5px 0 5px 6px;
-  border-bottom: 1px solid #c2c2c2;
 }
 
 .mentos {
@@ -204,17 +233,13 @@ p {
   gap: 40px !important;
 }
 
-.mento {
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 2px 25px;
-}
-
 .mento-title {
-  border: 1px solid #000;
   text-align: center;
-  line-height: 46px;
-  background: linear-gradient(to top, #b1b5fc, #f1baff);
-  border: 1px solid #c8c8c8;
+  line-height: 50px;
+  /* background: linear-gradient(to top, #facfff, #9fb9cf); */
   filter: brightness(110%);
+  background-color: rgba(204, 165, 255, 0.464);
+  background: linear-gradient(to bottom, #41b8eb4d, rgba(243, 184, 236, 0.628));
 }
 
 .mento-cont {
@@ -229,7 +254,7 @@ p {
 }
 
 .mento-cont img:nth-child(1) {
-  max-height: 38px;
+  max-height: 32px;
   margin-right: 12px;
 }
 
@@ -250,8 +275,27 @@ p {
   padding: 8px;
 }
 
+.teacher td {
+  font-size: 15px;
+}
+
 .teacher td:nth-child(2) {
   text-align: left;
 }
 
 /****************** 하단영역 *******************/
+
+.footer-info {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.footer-copyright {
+  padding-top: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.footer-social i {
+  padding: 30px 5px 0 0;
+  font-size: 32px;
+}

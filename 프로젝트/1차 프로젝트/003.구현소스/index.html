@@ -3,73 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+
     <link rel="stylesheet" href="./css/yjhong.css" />
     <title>레슨모아</title>
   </head>
   <body>
     <div class="container">
-      <header>
+      <!-- 최상단 영역 -->
+      <header class="top-area">
         <div class="inner">
-          <div class="lnb">
-            <a href="#none"> 고객센터 </a>
-            <a href="#none"> 광고문의 </a>
-            <a href="#none"> 제휴문의 </a>
-          </div>
+          <nav class="lnb">
+            <ul>
+              <li>
+                <a href="#none"> 고객센터 </a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="#none"> 광고문의 </a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="#none"> 제휴문의 </a>
+              </li>
+            </ul>
+          </nav>
         </div>
         <div class="divider"></div>
-        <nav class="inner">
-          <div class="cont-box">
-            <div class="col-4 logo">
-              <a href="#none">
-                <img src="images/logo.png" />
-              </a>
-            </div>
-            <div class="col-6 search">
-              <input
-                class="search-input"
-                type="text"
-                placeholder="검색어를 입력하세요"
-              />
-              <div class="search-icon"></div>
-            </div>
-            <div class="col-2 auth">
-              <button>로그인</button>
-              <button>회원가입</button>
+        <!-- 인트로 영역 -->
+        <nav class="intro">
+          <div class="inner">
+            <div class="cont-box" id="cont-box">
+              <div class="col-2 logo">
+                <a href="#none">
+                  <img src="images/logo.png" />
+                </a>
+              </div>
+              <div class="col-5 search">
+                <input
+                  class="search-input"
+                  type="text"
+                  placeholder="검색어를 입력하세요"
+                />
+                <div class="search-icon"></div>
+              </div>
+              <div class="col-5 auth">
+                <button>로그인</button>
+                <button>회원가입</button>
+              </div>
             </div>
           </div>
         </nav>
-        <nav class="inner">
-          <div class="cont-box">
-            <ul class="col-12 gnb">
-              <li>구인정보</li>
-              <li>강사정보</li>
-              <li>중고거래</li>
-              <li>레슨멘토</li>
-              <li>이력서 등록</li>
-            </ul>
+        <!-- GNB 영역 -->
+        <nav class="gnb">
+          <div class="inner">
+            <div id="cont-box">
+              <ul class="col-12 top-menu">
+                <li>구인정보</li>
+                <li>강사정보</li>
+                <li>중고거래</li>
+                <li>레슨멘토</li>
+                <li>이력서 등록</li>
+              </ul>
+            </div>
           </div>
         </nav>
         <div class="divider"></div>
       </header>
 
-      <main>
+      <!-- 메인영역 -->
+      <main class="main-area">
         <div class="inner">
           <div class="cont-box" id="cont-box">
-            <div class="col-8 c-box">
-              <div class="banner">
-                <!-- <img src="./images/navigate_left.png" alt="왼쪽 화살표" />
-              <div class="spacer"></div>
-              <img src="./images/navigate_right.png" alt="오른쪽 화살표" /> -->
-              </div>
+            <div class="col-8">
+              <!-- 배너 영역 -->
+              <div class="banner inbox"></div>
             </div>
-            <div class="col-4 c-box">
-              <div class="notice">
+            <div class="col-4">
+              <!-- 공지사항 영역 -->
+              <div class="notice inbox">
                 <div class="notice-title">
-                  <span> 공지사항 </span>
+                  <h4>공지사항</h4>
                   <span> 더보기 </span>
                 </div>
                 <div class="notice-content">
@@ -84,9 +99,6 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="inner">
           <!-- 최신글, 인기글 영역 -->
           <div class="cont-box">
             <div class="col-6">
@@ -94,7 +106,7 @@
                 <h3>최신글</h3>
                 <span> 전체보기 </span>
               </div>
-              <div class="new-content c-box">
+              <div class="new-content inbox">
                 <div class="new-category">
                   <span>카테고리</span>
                   <span>지역</span>
@@ -127,7 +139,7 @@
                 <h3>인기글</h3>
                 <span> 전체보기 </span>
               </div>
-              <div class="pop-content c-box">
+              <div class="pop-content inbox">
                 <div class="pop-category">
                   <span>카테고리</span>
                   <span>지역</span>
@@ -171,7 +183,10 @@
                   </a>
                   <h3>그랜드 피아노 팝니다.</h3>
                   <p class="pay">900,000 원</p>
-                  <p class="location">서울, 마포구</p>
+                  <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>서울, 마포구</p>
+                  </div>
                 </li>
                 <li class="product">
                   <a href="#">
@@ -179,7 +194,10 @@
                   </a>
                   <h3>그랜드 피아노 팝니다.</h3>
                   <p class="pay">900,000 원</p>
-                  <p class="location">서울, 은평구</p>
+                  <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>경기도, 남양주시</p>
+                  </div>
                 </li>
                 <li class="product">
                   <a href="#">
@@ -187,7 +205,10 @@
                   </a>
                   <h3>그랜드 피아노 팝니다.</h3>
                   <p class="pay">900,000 원</p>
-                  <p class="location">서울, 관악구</p>
+                  <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>서울, 성북구</p>
+                  </div>
                 </li>
                 <li class="product">
                   <a href="#">
@@ -195,7 +216,10 @@
                   </a>
                   <h3>그랜드 피아노 팝니다.</h3>
                   <p class="pay">900,000 원</p>
-                  <p class="location">서울, 마포구</p>
+                  <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>서울, 강동구</p>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -208,7 +232,7 @@
                 <span> 전체보기 </span>
               </div>
               <div class="mentos">
-                <div class="mento col-4">
+                <div class="col-4 inbox">
                   <div class="mento-title">
                     <h4>피아노 인기멘토 순위</h4>
                   </div>
@@ -219,8 +243,8 @@
                   </div>
                   <div class="mento-cont">
                     <img src="./images/medal-silver.png" alt="금메달" />
-                    <span> 유재석 </span>
-                    <img src="./images/mento_2.jpg" alt="얼굴사진" />
+                    <span> 공유 </span>
+                    <img src="./images/mento_4.jpg" alt="얼굴사진" />
                   </div>
                   <div class="mento-cont">
                     <img src="./images/medal-bronze.png" alt="동메달" />
@@ -228,7 +252,7 @@
                     <img src="./images/mento_3.jpg" alt="얼굴사진" />
                   </div>
                 </div>
-                <div class="mento col-4">
+                <div class="col-4 inbox">
                   <div class="mento-title">
                     <h4>미술 인기멘토 순위</h4>
                   </div>
@@ -239,8 +263,8 @@
                   </div>
                   <div class="mento-cont">
                     <img src="./images/medal-silver.png" alt="금메달" />
-                    <span> 유재석 </span>
-                    <img src="./images/mento_2.jpg" alt="얼굴사진" />
+                    <span> 공유 </span>
+                    <img src="./images/mento_4.jpg" alt="얼굴사진" />
                   </div>
                   <div class="mento-cont">
                     <img src="./images/medal-bronze.png" alt="동메달" />
@@ -248,7 +272,7 @@
                     <img src="./images/mento_3.jpg" alt="얼굴사진" />
                   </div>
                 </div>
-                <div class="mento col-4">
+                <div class="col-4 inbox">
                   <div class="mento-title">
                     <h4>예체능 인기멘토 순위</h4>
                   </div>
@@ -259,8 +283,8 @@
                   </div>
                   <div class="mento-cont">
                     <img src="./images/medal-silver.png" alt="금메달" />
-                    <span> 유재석 </span>
-                    <img src="./images/mento_2.jpg" alt="얼굴사진" />
+                    <span> 공유 </span>
+                    <img src="./images/mento_4.jpg" alt="얼굴사진" />
                   </div>
                   <div class="mento-cont">
                     <img src="./images/medal-bronze.png" alt="동메달" />
@@ -275,7 +299,7 @@
           <div class="cont-box">
             <div class="col-12">
               <div class="cont-title">
-                <h3>레슨멘토 순위</h3>
+                <h3>선생님 찾기</h3>
                 <span> 전체보기 </span>
               </div>
               <div class="teacher">
@@ -337,6 +361,35 @@
           </div>
         </div>
       </main>
+      <footer class="footer-area">
+        <div class="inner">
+          <div class="footer-info">
+            <p>
+              레슨모아 고객센터 : xx-xxxx-xxxx (평일 09:00 - 18:00, 점심시간
+              12:00 - 13:00, 주말·공휴일 휴무)
+              <br />
+              이메일 : xx@naver.com / Fax : xx-xxxx-xxxx
+              <br /><br />
+              (주) 레슨모아, 우 : 08378, 서울특별시 구로구 디지털로34길 43 ,
+              대표: xxx
+              <br />
+              사업자등록 : xxx-xx-xxxxx / 직업정보제공사업 : 서울 관악 제
+              xxxx-x호 / 통신판매업 : 제 xxxx-xxxxx호
+              <br />
+            </p>
+          </div>
+          <div class="footer-copyright">
+            Copyright &copy; (주)레슨모아. All rights reserved.
+          </div>
+          <div class="footer-social">
+            <i class="fa-brands fa-youtube"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-square-twitter"></i>
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-apple"></i>
+          </div>
+        </div>
+      </footer>
     </div>
   </body>
 </html>

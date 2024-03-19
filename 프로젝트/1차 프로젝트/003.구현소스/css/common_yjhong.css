@@ -1,25 +1,39 @@
-/* 웹폰트 구글 CDN(Content Delivery Network) */
+/* 웹폰트 구글 CDN (Content Delivery Network) */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Bagel+Fat+One&family=Diphylleia&family=Orbit&display=swap");
 
-/* 폰트적용 */
+/* Fontawesome 4.7 CDN */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");
+
+/* Use Font */
 * {
   font-family: "Noto Sans KR", sans-serif;
 }
 
-/* 공통 영역 */
+/* Common area */
 .container {
-  height: 2000px;
+  /* height: 2000px; */
 }
+
 .inner {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.inbox {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .divider {
   border-bottom: 1px solid #e8e8e8;
 }
 
-.c-box {
-  border: 1px solid rgba(0, 0, 0, 0); /* 테두리 설정 (투명도 조절) */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* 그림자 설정 (투명도 조절) */
+.top-area {
+}
+
+.main-area {
+}
+
+.footer-area {
+  border-top: 1px solid #c7c7c7;
+  margin: 80px 0 40px 0;
 }
