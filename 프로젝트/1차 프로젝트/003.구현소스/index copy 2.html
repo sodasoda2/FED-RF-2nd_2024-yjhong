@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="./css/yjhong.css" />
-    <script src="./js/slide.js" defer></script>
     <title>레슨모아</title>
   </head>
   <body>
@@ -33,9 +32,9 @@
         </div>
         <div class="divider"></div>
         <!-- 인트로 영역 -->
-        <div class="inner">
-          <nav class="intro">
-            <div class="cont-box">
+        <nav class="intro">
+          <div class="inner">
+            <div class="cont-box" id="cont-box">
               <div class="col-2 logo">
                 <a href="#none">
                   <img src="images/logo.png" />
@@ -54,59 +53,32 @@
                 <button>회원가입</button>
               </div>
             </div>
-          </nav>
-        </div>
-        <div class="divider pt-50"></div>
+          </div>
+        </nav>
         <!-- GNB 영역 -->
-        <div class="inner">
-          <nav class="col-12 gnb">
-            <ul>
-              <li>
-                <a href="#">구인정보</a>
-                <!-- 서브메뉴 -->
-                <div class="smenu">
-                  <ol>
-                    <li>
-                      <a href="#">RVC</a>
-                    </li>
-                    <li>
-                      <a href="#">In-cabin</a>
-                    </li>
-                    <li>
-                      <a href="#">FVC</a>
-                    </li>
-                    <li>
-                      <a href="#">SVM</a>
-                    </li>
-                    <li>
-                      <a href="#">E-mirror</a>
-                    </li>
-                  </ol>
-                </div>
-              </li>
-              <li>강사정보</li>
-              <li>중고거래</li>
-              <li>레슨멘토</li>
-              <li>이력서 등록</li>
-            </ul>
-          </nav>
-        </div>
+        <nav class="gnb">
+          <div class="inner">
+            <div id="cont-box">
+              <ul class="col-12 top-menu">
+                <li>구인정보</li>
+                <li>강사정보</li>
+                <li>중고거래</li>
+                <li>레슨멘토</li>
+                <li>이력서 등록</li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div class="divider"></div>
       </header>
-      <div class="divider"></div>
+
       <!-- 메인영역 -->
       <main class="main-area">
         <div class="inner">
           <div class="cont-box" id="cont-box">
             <div class="col-8">
               <!-- 배너 영역 -->
-              <div class="banner inbox">
-                <img src="./images/banner_1.jpg" class="active" alt="배너1" />
-                <img src="./images/banner_2.png" alt="배너2" />
-                <img src="./images/banner_3.png" alt="배너3" />
-                <img src="./images/banner_4.png" alt="배너4" />
-                <i class="prev fa-solid fa-chevron-left"></i>
-                <i class="next fa-solid fa-chevron-right"></i>
-              </div>
+              <div class="banner inbox"></div>
             </div>
             <div class="col-4">
               <!-- 공지사항 영역 -->

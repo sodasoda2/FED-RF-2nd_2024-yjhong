@@ -51,12 +51,13 @@
 -> 플렉스 박스는 싸고 있는 부모를 설정함! */
 .cont-box {
   display: flex;
-  height: 100%;
+  max-height: 100%;
+  max-width: auto;
   gap: 25px;
   align-items: center;
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 #cont-box {
-  padding-top: 20px;
+  padding-top: 40px;
 }
