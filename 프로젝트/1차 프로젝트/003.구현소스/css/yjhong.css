@@ -18,16 +18,10 @@ body * {
 }
 
 /******************* 상단영역 *******************/
-/* header {
-  position: fixed;
-  width: 100%;
-  z-index: 10000;
-} */
-
 .lnb {
   display: flex;
   justify-content: flex-end;
-  line-height: 32px;
+  line-height: 35px;
 }
 
 .lnb a {
@@ -36,7 +30,7 @@ body * {
 }
 
 .logo img {
-  height: 46px;
+  height: 45px;
   vertical-align: middle;
 }
 
@@ -308,6 +302,10 @@ body * {
 }
 
 /****************** 하단영역 *******************/
+.footer-area {
+  border-top: 1px solid #c7c7c7;
+  margin: 80px 0 40px 0;
+}
 
 .footer-info {
   margin-top: 20px;
@@ -326,40 +324,57 @@ body * {
 }
 
 /******* 테스트 코드 영역 ********/
+.homeIcon {
+  font-size: 20px;
+  color: rgb(52, 52, 52);
+  margin-right: 60px;
+}
 
-/* GNB 메뉴 */
+/* gnb 상위메뉴 */
+.gnb {
+  display: flex !important;
+  align-items: center;
+}
+
 .gnb ul {
   display: flex;
   white-space: nowrap;
 }
 
+/* gnb 상위메뉴 마지막 li */
+.gnb ul li:last-child {
+  margin-left: auto;
+}
+
+/* gnb 상위메뉴요소 */
 .gnb ul li a {
   color: black;
 }
 
+/* gnb 상위메뉴요소 hover 시*/
+.gnb ul li a:hover {
+  color: rgb(16, 16, 255);
+}
+
+/* gnb 상위메뉴 요소의 a만 선택 (하위요소 a 미선택) */
 .gnb > ul > li > a {
   padding: 20px 70px;
-  font-size: 19px;
+  font-size: 18px;
 }
 
+/* gnb 상위메뉴 요소의 첫번째 a */
 .gnb > ul > li > a:first-child {
   padding-left: 0px;
-  font-size: 19px;
 }
 
-.gnb ul li:nth-child(4) {
-  margin-right: auto;
+/* gnb 상위메뉴 요소의 마지막 a */
+.gnb > ul > li > a:last-child {
+  padding-right: 0px;
 }
 
-.gnb ul li a:hover {
-  cursor: pointer;
-  color: rgb(135, 75, 239);
-}
-
-/* GNB 메뉴 하위요소 */
+/* gnb 상위,하위 a요소 */
 .gnb a {
   display: block;
-  /* 블록요소로 확장설정함! */
 }
 
 /* 상위메뉴만 적용하기 
@@ -368,12 +383,12 @@ body * {
   position: relative;
 }
 
-/* 서브메뉴 */
+/* gnb 하위메뉴 */
 .smenu {
   position: absolute;
   left: 50%;
-  transform: translateX(-72%);
-  width: 150px;
+  transform: translateX(-80%);
+  width: 120px;
   background-color: white;
   line-height: 30px;
   max-height: 0;
@@ -388,31 +403,32 @@ body * {
   box-shadow: 0 0 5px rgb(224, 224, 224);
 }
 
-/* 예시로 5번째 높이값 개별셋팅 */
-/* .gnb ul>li:nth-child(5):hover .smenu{
-    height: 58px;
-} */
-
+/* 하위메뉴 리스트들 */
 .smenu ol {
-  padding: 15px;
   text-align: center;
 }
 
-/* 서브메뉴 li 순서대로 나타나기 */
+/* 하위메뉴 li 요소 */
 .smenu ol li {
   opacity: 0;
   transition: all 0.4s;
 }
 
-/* 상위메뉴 오버시 */
+/* 하위메뉴 a 요소 */
+.smenu ol li a {
+  padding: 6%;
+  font-size: 14.5px;
+  color: rgb(63, 63, 63);
+}
+
+/* 하위메뉴 오버시 */
 .gnb ul > li:hover .smenu li {
   opacity: 1;
 }
 
-/* 하위메뉴 a요소 투명도 조정 */
-.gnb ul > li .smenu li a {
-  opacity: 0.8;
-  transition: 0.3s;
+/* 하위메뉴 li요소에 오버시 */
+.gnb ul > li .smenu li:hover {
+  background-color: rgb(234, 234, 234);
 }
 
 /* 하위메뉴 a요소에 오버시 */
@@ -421,16 +437,27 @@ body * {
   font-weight: bold;
 }
 
-/* 오버시 li순서별 트랜지션 delay주기 */
-.gnb ul > li:hover .smenu li:nth-child(2) {
-  transition-delay: 0.2s;
+/*****************************/
+
+/* 스크롤을 내릴 때 fixed로 변하는 헤더 스타일 */
+.header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff; /* 원하는 배경색으로 변경 */
+  z-index: 1000; /* 다른 요소 위에 표시하기 위해 z-index 설정 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
 }
-.gnb ul > li:hover .smenu li:nth-child(3) {
-  transition-delay: 0.3s;
+
+/* 스크롤을 내릴 때 로고와 메뉴 등을 다르게 보이게 하는 스타일 */
+.header-fixed .lnb a,
+.header-fixed .intro {
+  /* 여기에 헤더가 fixed일 때 다르게 보이도록 CSS 스타일을 추가하세요 */
 }
-.gnb ul > li:hover .smenu li:nth-child(4) {
-  transition-delay: 0.4s;
-}
-.gnb ul > li:hover .smenu li:nth-child(5) {
-  transition-delay: 0.5s;
+
+/* 스크롤을 내릴 때 검색 박스와 로그인/회원가입 버튼 등을 다르게 보이게 하는 스타일 */
+.header-fixed .search,
+.header-fixed .auth {
+  /* 여기에 헤더가 fixed일 때 다르게 보이도록 CSS 스타일을 추가하세요 */
 }

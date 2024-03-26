@@ -7,6 +7,52 @@
     <link rel="stylesheet" href="./css/yjhong.css" />
     <script src="./js/slide.js" defer></script>
     <title>레슨모아</title>
+    <script>
+      // window의 scroll 이벤트를 감지하여 헤더를 fixed로 변경하는 스크립트
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector(".top-area"); // 헤더 요소 선택
+        const gnb = document.querySelector(".gnb"); // GNB 메뉴 요소 선택
+        const lnb = document.querySelector(".lnb"); // LNB 메뉴 요소 선택
+        const intro = document.querySelector(".intro"); // 인트로 영역 요소 선택
+        const divider = document.querySelectorAll(".divider"); // 디바이더 요소 선택
+
+        if (window.scrollY > 0) {
+          // 스크롤이 일정 이상 내려갔을 때
+          header.classList.add("header-fixed"); // 헤더에 fixed 클래스 추가
+          gnb.style.display = "block"; // GNB 메뉴를 보이게 함
+          // 다른 부분은 숨김 처리
+          lnb.style.display = "none";
+          intro.style.display = "none";
+          divider.forEach(function (div) {
+            div.style.display = "none";
+          });
+
+          // 홈 아이콘 추가
+          if (!gnb.querySelector(".fa-solid.fa-house.homeIcon")) {
+            const homeIcon = document.createElement("i");
+            homeIcon.classList.add("fa-solid", "fa-house", "homeIcon");
+            gnb.insertBefore(homeIcon, gnb.firstChild); // gnb의 첫 번째 자식으로 아이콘 추가
+          }
+        } else {
+          // 스크롤이 맨 위로 올라왔을 때
+          header.classList.remove("header-fixed"); // 헤더의 fixed 클래스 제거
+          gnb.style.display = "none"; // GNB 메뉴를 숨김
+
+          // 다른 부분은 보이게 처리
+          lnb.style.display = "block";
+          intro.style.display = "block";
+          divider.forEach(function (div) {
+            div.style.display = "block";
+          });
+
+          // 홈 아이콘 제거
+          const homeIcon = gnb.querySelector(".fa-solid.fa-house.homeIcon");
+          if (homeIcon) {
+            homeIcon.remove();
+          }
+        }
+      });
+    </script>
   </head>
   <body>
     <div class="container">
@@ -14,28 +60,16 @@
       <header class="top-area">
         <div class="inner">
           <nav class="lnb">
-            <ul>
-              <li>
-                <a href="#none"> 고객센터 </a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a href="#none"> 광고문의 </a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a href="#none"> 제휴문의 </a>
-              </li>
-            </ul>
+            <a href="#none"> 고객센터 </a>
+            <a href="#none"> 광고문의 </a>
+            <a href="#none"> 제휴문의 </a>
           </nav>
         </div>
         <div class="divider"></div>
         <!-- 인트로 영역 -->
         <div class="inner">
           <nav class="intro">
-            <div class="cont-box pt-50">
+            <div class="cont-box pt-40">
               <div class="col-2 logo">
                 <a href="#none">
                   <img src="images/logo.png" />
@@ -56,10 +90,10 @@
             </div>
           </nav>
         </div>
-        <div class="divider pt-50"></div>
+        <div class="divider pt-40"></div>
         <!-- GNB 영역 -->
         <div class="inner">
-          <nav class="col-12 gnb">
+          <nav class="gnb">
             <ul>
               <li>
                 <a href="#">구인정보</a>
@@ -67,16 +101,13 @@
                 <div class="smenu">
                   <ol>
                     <li>
-                      <a href="#">RVC</a>
+                      <a href="#">전체</a>
                     </li>
                     <li>
-                      <a href="#">In-cabin</a>
+                      <a href="#">지역별</a>
                     </li>
                     <li>
-                      <a href="#">FVC</a>
-                    </li>
-                    <li>
-                      <a href="#">SVM</a>
+                      <a href="#">분야별</a>
                     </li>
                   </ol>
                 </div>
@@ -86,19 +117,13 @@
                 <div class="smenu">
                   <ol>
                     <li>
-                      <a href="#">RVC</a>
+                      <a href="#">전체</a>
                     </li>
                     <li>
-                      <a href="#">In-cabin</a>
+                      <a href="#">지역별</a>
                     </li>
                     <li>
-                      <a href="#">FVC</a>
-                    </li>
-                    <li>
-                      <a href="#">SVM</a>
-                    </li>
-                    <li>
-                      <a href="#">E-mirror</a>
+                      <a href="#">분야별</a>
                     </li>
                   </ol>
                 </div>
@@ -108,19 +133,13 @@
                 <div class="smenu">
                   <ol>
                     <li>
-                      <a href="#">RVC</a>
+                      <a href="#">전체</a>
                     </li>
                     <li>
-                      <a href="#">In-cabin</a>
+                      <a href="#">지역별</a>
                     </li>
                     <li>
-                      <a href="#">FVC</a>
-                    </li>
-                    <li>
-                      <a href="#">SVM</a>
-                    </li>
-                    <li>
-                      <a href="#">E-mirror</a>
+                      <a href="#">분야별</a>
                     </li>
                   </ol>
                 </div>
@@ -131,19 +150,13 @@
                 <div class="smenu">
                   <ol>
                     <li>
-                      <a href="#">RVC</a>
+                      <a href="#">전체</a>
                     </li>
                     <li>
-                      <a href="#">In-cabin</a>
+                      <a href="#">지역별</a>
                     </li>
                     <li>
-                      <a href="#">FVC</a>
-                    </li>
-                    <li>
-                      <a href="#">SVM</a>
-                    </li>
-                    <li>
-                      <a href="#">E-mirror</a>
+                      <a href="#">분야별</a>
                     </li>
                   </ol>
                 </div>

@@ -10,10 +10,6 @@
 }
 
 /* Common area */
-.container {
-  /* height: 2000px; */
-}
-
 .inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -25,15 +21,4 @@
 
 .divider {
   border-bottom: 1px solid #e8e8e8;
-}
-
-.top-area {
-}
-
-.main-area {
-}
-
-.footer-area {
-  border-top: 1px solid #c7c7c7;
-  margin: 80px 0 40px 0;
 }
