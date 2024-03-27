@@ -1,29 +1,51 @@
+// * 메인페이지 배너 슬라이드 기능
+
+// DOM 선택함수
 const banner = document.querySelector(".banner");
-const images = banner.querySelectorAll("img");
+const images = banner.querySelectorAll(".banner-image");
 const prevBtn = banner.querySelector(".prev");
 const nextBtn = banner.querySelector(".next");
 
-let currentImageIndex = 0;
+let imageIndex = 0;
+let timer; // 타이머 저장변수
 
-// 최초 로드 시 이미지 표시
-images[currentImageIndex].classList.add("active");
+// 최초 로드 시 이미지 표시 및 타이머 시작
+showImageAndStartTimer();
 
-// 2초마다 이미지 변경
-setInterval(() => {
-  images[currentImageIndex].classList.remove("active");
-  currentImageIndex = (currentImageIndex + 1) % images.length;
-  images[currentImageIndex].classList.add("active");
-}, 3000);
+function showImageAndStartTimer() {
+  images[imageIndex].classList.add("active");
 
-// 좌우 화살표 클릭 시 이미지 변경
-prevBtn.addEventListener("click", () => {
-  images[currentImageIndex].classList.remove("active");
-  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-  images[currentImageIndex].classList.add("active");
-});
+  // 3초마다 이미지 변경
+  timer = setTimeout(() => {
+    changeImage();
+  }, 3000);
+}
 
-nextBtn.addEventListener("click", () => {
-  images[currentImageIndex].classList.remove("active");
-  currentImageIndex = (currentImageIndex + 1) % images.length;
-  images[currentImageIndex].classList.add("active");
-});
+function changeImage() {
+  images[imageIndex].classList.remove("active");
+  imageIndex = (imageIndex + 1) % images.length;
+  images[imageIndex].classList.add("active");
+  timer = setTimeout(() => {
+    changeImage();
+  }, 3000);
+}
+
+prevBtn.onclick = () => {
+  images[imageIndex].classList.remove("active");
+  imageIndex = (imageIndex - 1 + images.length) % images.length;
+  images[imageIndex].classList.add("active");
+  clearTimeout(timer); // 기존 타이머를 일시 중지
+  timer = setTimeout(() => {
+    changeImage();
+  }, 7000); // 7초 후에 타이머 재개
+};
+
+nextBtn.onclick = () => {
+  images[imageIndex].classList.remove("active");
+  imageIndex = (imageIndex + 1) % images.length;
+  images[imageIndex].classList.add("active");
+  clearTimeout(timer); // 기존 타이머를 일시 중지
+  timer = setTimeout(() => {
+    changeImage();
+  }, 7000); // 7초 후에 타이머 재개
+};

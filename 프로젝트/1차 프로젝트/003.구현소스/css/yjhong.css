@@ -18,6 +18,10 @@ body * {
 }
 
 /******************* 상단영역 *******************/
+.lnb-area {
+  background-color: rgb(250, 250, 250);
+}
+
 .lnb {
   display: flex;
   justify-content: flex-end;
@@ -27,6 +31,7 @@ body * {
 .lnb a {
   font-size: 13px;
   margin-left: 20px;
+  color: black;
 }
 
 .logo img {
@@ -52,28 +57,32 @@ body * {
   justify-content: end;
 }
 
-.auth button {
-  font-size: 13px;
+.auth span {
+  font-size: 15px;
   margin-left: 5px;
+}
+
+.auth span a:hover {
+  color: #4875ef;
+}
+
+.auth .hr {
+  padding: 0 7px;
 }
 
 /******************* 메인영역 *******************/
 
 /* 배너 이미지 */
-/* .banner {
-  background: url(../images/banner_1.jpg) no-repeat center/cover;
-  border: 1px solid #a7a7a7;
-  height: 150px;
-} */
 
 .bn-area {
+  margin-top: 4px;
   background: #f3f8ff;
 }
 
 .banner {
+  position: relative;
   height: 150px;
   overflow: hidden;
-  position: relative;
 }
 
 .banner img {
@@ -215,8 +224,7 @@ body * {
 /* 최근 중고거래 상품 이미지 */
 .product img {
   width: 100%;
-  height: auto;
-  max-width: 200px;
+  max-width: 260px;
   max-height: 200px;
 }
 
@@ -255,8 +263,7 @@ body * {
   text-align: center;
   line-height: 50px;
   /* background: linear-gradient(to top, #facfff, #9fb9cf); */
-  filter: brightness(110%);
-  background-color: rgba(204, 165, 255, 0.464);
+  filter: brightness(120%);
   background: linear-gradient(to bottom, #41b8eb4d, rgba(243, 184, 236, 0.628));
 }
 
@@ -272,7 +279,7 @@ body * {
 }
 
 .mento-cont img:nth-child(1) {
-  max-height: 32px;
+  max-height: 30px;
   margin-right: 12px;
 }
 
@@ -349,17 +356,18 @@ body * {
 /* gnb 상위메뉴요소 */
 .gnb ul li a {
   color: black;
+  font-size: 17px;
 }
 
 /* gnb 상위메뉴요소 hover 시*/
 .gnb ul li a:hover {
-  color: rgb(16, 16, 255);
+  color: #2d65f2;
 }
 
 /* gnb 상위메뉴 요소의 a만 선택 (하위요소 a 미선택) */
 .gnb > ul > li > a {
-  padding: 20px 70px;
-  font-size: 18px;
+  padding: 17px 70px;
+  font-size: 17.5px;
 }
 
 /* gnb 상위메뉴 요소의 첫번째 a */
@@ -437,6 +445,30 @@ body * {
   font-weight: bold;
 }
 
+/* .indic {
+  display: flex;
+  position: absolute;
+  bottom: 150px;
+  left: 180px;
+}
+
+.indic li {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.indic li img {
+  position: absolute;}
+.indic li img:last-child {
+
+  opacity: 0;
+}
+
+.indic li.on img:last-child {
+  opacity: 1;
+} */
+
 /*****************************/
 
 /* 스크롤을 내릴 때 fixed로 변하는 헤더 스타일 */
@@ -461,3 +493,7 @@ body * {
 .header-fixed .auth {
   /* 여기에 헤더가 fixed일 때 다르게 보이도록 CSS 스타일을 추가하세요 */
 }
+
+/* .test {
+  border-bottom: 1px solid rgb(244, 161, 244) !important;
+} */

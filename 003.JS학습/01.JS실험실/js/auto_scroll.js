@@ -1,5 +1,3 @@
-// 자동스크롤 JS - auto_scroll.js
-
 /********************************************** 
     [ 자동스크롤 기능정의 ]
     1. 스크롤바가 없는 상태에서 또는 스크롤기능을 
@@ -126,14 +124,8 @@ function wheelFn(e) {
   // scrollTo(0, y축이동값)
   window.scrollTo(0, pos);
 
-  // 2. 전체 메뉴에 on 빼기
-  for (let x of gnb) {
-    x.parentElement.classList.remove("on");
-  }
-  // 3. 해당순번에 on 넣기
-  gnb[pgNum].parentElement.classList.add("on");
-  // parentElement는 선택요소의 부모요소다!
-  // gnb[pgNum]은 해당순번의 메뉴a요소다!
+  // 6. 해당메뉴 순번 on넣기 / 나머지 on빼기
+  chgMenu(pgNum);
 } /////////// wheelFn 함수 ////////////////
 ///////////////////////////////////////////
 
@@ -142,13 +134,51 @@ function wheelFn(e) {
 ***********************************/
 // 이벤트 대상: .gnb a
 const gnb = document.querySelectorAll(".gnb a");
-console.log("gnb:", gnb);
+// 이벤트 대상: .indic a
+const indic = document.querySelectorAll(".indic a");
+console.log("gnb:", gnb, "indic:", indic);
 // 이벤트 설정하기 + 기능구현하기
 gnb.forEach((ele, idx) => {
   ele.onclick = () => {
-    // 클릭 시 자신의 순번찍기
-    console.log("순번:", idx);
-    // 1. 전역페이지변수에 순번 업데이트
-    pgNum = idx;
+    // 메뉴 변경함수 호출
+    chgMenu(idx);
   }; /// click 함수 ///
 }); ///// forEach /////
+
+indic.forEach((ele, idx) => {
+  ele.onclick = () => {
+    // 메뉴 변경함수 호출
+    chgMenu(idx);
+  }; /// click 함수 ///
+}); ///// forEach /////
+
+// [ 메뉴 변경함수 : .gnb + .indic ]
+function chgMenu(idx) {
+  // 호출확인
+  console.log("메뉴변경!");
+
+  // 1. 전역페이지변수에 순번 업데이트
+  pgNum = idx;
+
+  // 2. 전체 메뉴에 on빼기
+  gnb.forEach((ele, seq) => {
+    // ele - a요소 / seq - 순번
+    if (idx === seq) {
+      // 선택순번과 같으면 on넣기
+      ele.parentElement.classList.add("on");
+      indic[seq].parentElement.classList.add("on");
+    } else {
+      // 기타의 경우 on 지우기
+      ele.parentElement.classList.remove("on");
+      indic[seq].parentElement.classList.remove("on");
+    }
+  }); ///////// forEach /////////
+
+  // for (let x of gnb) {
+  //   x.parentElement.classList.remove("on");
+  // }
+  /// for of ///
+
+  // 3. 해당순번에 on 넣기
+  // gnb[pgNum].parentElement.classList.add("on");
+} /////////// chgMenu 함수 /////////////
