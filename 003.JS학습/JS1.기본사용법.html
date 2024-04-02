@@ -132,6 +132,7 @@
         -> 주의사항: 세미콜론을 안써도 되는 편리한 기능이지만
         자동구문분석에서 오류분석이 있을 수 있으므로
         개발자가 직접 세미콘론을 넣어주는 것을 추천함!!!
+
         ____________________________________
 
         [ JS의 이벤트란? ]
@@ -155,106 +156,118 @@
         -> on+이벤트명 = 값
         예) <h1 onclick="함수명()">
             onmouseover="값", onload="값"
+
+      ___________________________________
+
+        [ JS의 이퀄의 의미 ]
+        - 이퀄은 오른쪽값이 왼쪽에 할당됨을 의미!
+        (할당은 값이 특정 메모리공간에 들어감을 의미)
+        -> 절대로 같다는 의미가 아니다!!!!
+
+        [ JS에서 점(.)의 의미 ]
+        - 객체의 하위 메서드나 속성으로 들어감을 의미
+        - 객체는 목적을 가지고 만든 프로그램 단위체
+        - 메서드는 객체 내부에 만들어진 함수(코드저장소)
+        - 속성은 객체 내부의 특정값을 정의하는 항목
+
+        예) 우주.우리은하.태양계.지구.대한민국.서울.강남구
+
+        _______________________________________
+
+        [ JS 기본 요소 선택법 ]
+
+        1. 아이디 선택법 :
+        getElementById(아이디명)
+
+        get Element By Id
+        가져와 요소를 아이디로!
+        -> 아이디는 유일하므로 선택즉시
+        바로 접근가능함!
+
+        2. 클래스 선택법 : 
+        getElementsByClassName(클래스명)
+
+        get Elements By Class Name
+        가져와 요소들을 클래스명으로!
+
+        -> 클래스는 여러번 사용가능하므로
+        선택후 순번을 선택해야 구체적인 요소에 접근가능함!
+
+        -> 순번선택방법: item(순번) / [순번]
+            document
+            .getElementsByClassName(클래스명).item(순번)
+
+            document
+            .getElementsByClassName(클래스명)[순번]
         
-            _______________________________________
+        -> 개수 : length
 
-            [ JS 기본 요소 선택법 ]
+        3. 태그 선택법 : 
+        getElementsByTagName(태그명)
 
-            1. 아이디 선택법 :
-            getElementById(아이디명)
+        get Elements By Tag Name
+        가져와 요소들을 태그명으로!
 
-            get Element By Id
-            가져와 요소를 아이디로!
-            -> 아이디는 유일하므로 선택즉시
-            바로 접근가능함!
+        -> 태그는 여러번 사용가능하므로
+        선택후 순번을 선택해야 구체적인 요소에 접근가능함!
 
-            2. 클래스 선택법 : 
-            getElementsByClassName(클래스명)
+        -> 순번선택방법: item(순번) / [순번]
+            document
+            .getElementsByTagName(태그명).item(순번)
 
-            get Elements By Class Name
-            가져와 요소들을 클래스명으로!
+            document
+            .getElementsByTagName(태그명)[순번]
 
-            -> 클래스는 여러번 사용가능하므로
-            선택후 순번을 선택해야 구체적인 요소에 접근가능함!
+        -> 개수 : length
 
-            -> 순번선택방법: item(순번) / [순번]
-                document
-                .getElementsByClassName(클래스명).item(순번)
+        __________________________________________
 
-                document
-                .getElementsByClassName(클래스명)[순번]
-            
-            -> 개수 : length
+        [ 선택자 문법을 그대로 사용하는 요소 선택법 ]
 
-            3. 태그 선택법 : 
-            getElementsByTagName(태그명)
+        1. querySelector(CSS선택자)
+        -> 선택자에 맞는 요소를 처음만나는 것으로 선택
+        -> 무조건 하나만 가져오므로 순번 불필요!
 
-            get Elements By Tag Name
-            가져와 요소들을 태그명으로!
+        예) document.querySelector('#my>li')
+        -> 만나는 첫번째 li요소를 선택함
 
-            -> 태그는 여러번 사용가능하므로
-            선택후 순번을 선택해야 구체적인 요소에 접근가능함!
+        2. querySelectorAll(CSS선택자)
+        -> 선택자에 맞는 요소를 모두 가져옴!
+        -> html요소 컬렉션에 담겨서 저장됨
+        -> 순번과 개수를 구할 수 있음
+        순번 : item(순번) / [순번]
+        개수 : length 
 
-            -> 순번선택방법: item(순번) / [순번]
-                document
-                .getElementsByTagName(태그명).item(순번)
+        예) document.querySelectorAll('#my>li')
+        -> 만나는 li모두를 선택함(순번,개수 사용함!)
+        ____________________________________________
 
-                document
-                .getElementsByTagName(태그명)[순번]
+        [ JS에서 요소 선택 후 CSS변경하기 ]
 
-            -> 개수 : length
+        1. 스타일시트 속성명으로 개별추가하기
 
-            __________________________________________
+        선택요소.style.스타일시트속성명 = 속성값
+        - 선택요소의 CSS특정 속성값을 변경함
+        - 스타일시트 속성명은 모두 변수형으로 JS브라우저
+        객체의 속성으로 만들어져 있다!
 
-            [ 선택자 문법을 그대로 사용하는 요소 선택법 ]
+        예) 'font-size' -> fontSize
+            'border-radius' -> borderRadius
 
-            1. querySelector(CSS선택자)
-            -> 선택자에 맞는 요소를 처음만나는 것으로 선택
-            -> 무조건 하나만 가져오므로 순번 불필요!
+            -> 이음절 이상 속성명은 데쉬(-)를 빼고
+            단어 첫글자를 대문자로 처리하여 사용함!
 
-            예) document.querySelector('#my>li')
-            -> 만나는 첫번째 li요소를 선택함
+            -> JS에서 CSS를 변경하면 요소 태그 내부에
+            style속성으로 인라인코딩 되어 들어간다!
+            (최우선 적용!)
 
-            2. querySelectorAll(CSS선택자)
-            -> 선택자에 맞는 요소를 모두 가져옴!
-            -> html요소 컬렉션에 담겨서 저장됨
-            -> 순번과 개수를 구할 수 있음
-            순번 : item(순번) / [순번]
-            개수 : length 
+            2. 한꺼번에 style속성값으로 넣기
+            -> style.cssText = 'css문법'
+            -> 이전에 코딩된 인라인 style 속성값은 무시됨!
+            -> 백틱(`)을 사용하면 좀 더 가독성있는 코딩가능
 
-            예) document.querySelectorAll('#my>li')
-            -> 만나는 li모두를 선택함(순번,개수 사용함!)
-            ____________________________________________
-
-            [ JS에서 요소 선택 후 CSS변경하기 ]
-
-            1. 스타일시트 속성명으로 개별추가하기
-
-            선택요소.style.스타일시트속성명 = 속성값
-            - 선택요소의 CSS특정 속성값을 변경함
-            - 스타일시트 속성명은 모두 변수형으로 JS브라우저
-            객체의 속성으로 만들어져 있다!
-
-            예) 'font-size' -> fontSize
-                'border-radius' -> borderRadius
-
-                -> 이음절 이상 속성명은 데쉬(-)를 빼고
-                단어 첫글자를 대문자로 처리하여 사용함!
-
-                -> JS에서 CSS를 변경하면 요소 태그 내부에
-                style속성으로 인라인코딩 되어 들어간다!
-                (최우선 적용!)
-
-                2. 한꺼번에 style속성값으로 넣기
-                -> style.cssText = 'css문법'
-                -> 이전에 코딩된 인라인 style 속성값은 무시됨!
-                -> 백틱(`)을 사용하면 좀 더 가독성있는 코딩가능
-
-            ________________________________________
-
+        ________________________________________
         
-
-
         *******************************************/
 
       // 출력1
@@ -276,7 +289,8 @@
         // 변경대상 : #name
         // 선택요소에 html넣기 : innerHTML속성에 할당
         // 전체문서.가져와아이디요소(아이디명).html넣기
-        document.getElementById("name").innerHTML = '<img src="./images/kim.png" alt="김비서가 왜 그럴까">';
+        document.getElementById("name").innerHTML =
+          '<img src="./images/kim.png" alt="김비서가 왜 그럴까">';
 
         // 콘솔에 아이디요소 찍기
         console.log(document.getElementById("name"));
@@ -318,7 +332,8 @@
         // - var는 variable(변수)라는 단어에서 나온말!
 
         // 3-1. 배경이미지 넣기
-        피박스.style.background = "url(./images/kimbs.jpg) no-repeat center/cover";
+        피박스.style.background =
+          "url(./images/kimbs.jpg) no-repeat center/cover";
 
         // 3-2. 글자색 변경하기
         피박스.style.color = "lime";
@@ -511,41 +526,43 @@
         기능 : 전체가 사각형으로 화면을
               채우며 애니메이션 됨!
       ******************************************/
-      function 사각사각() {
+     function 사각사각(){
         // 1. 함수호출확인
         console.log("사각사각하세요~!");
 
         // 2. 대상선정 : .넌뭐냐
-        var 나야나 = document.querySelector(".넌뭐냐");
+        var 나야나 = document.querySelector('.넌뭐냐');
 
         // 선택요소 확인
         console.log(나야나);
 
         // 3. 변경내용 : top, 트랜지션, width, height
-        나야나.style.top = "0";
-        나야나.style.borderRadius = "0";
-        나야나.style.width = "100%";
-        나야나.style.height = "100%";
-        나야나.style.transition = "3s 1s, top 1s 0s";
+        나야나.style.top = '0';
+        나야나.style.borderRadius = '0';
+        나야나.style.width = '100%';
+        나야나.style.height = '100%';
+        나야나.style.transition = '3s 1s, top 1s 0s';
         나야나.style.zIndex = 100;
         /* top값 부터 1초간 작동함! */
 
         // 4. 추가변경 : 글자넣기
-        // innerText = 글자내용
+        // innerText = 글자내용 
         // -> 태그없는 글자 데이터 넣기!
-        나야나.innerText = "JS입문을 환영합니다!";
+        나야나.innerText = 'JS입문을 환영합니다!';
 
         // 5. 글자 관련 CSS넣기
-        나야나.style.fontSize = "70px";
-        나야나.style.color = "aqua";
-        나야나.style.fontWeight = "bold";
-        나야나.style.textShadow = "5px 5px 3px #000";
-        나야나.style.lineHeight = window.innerHeight + "px";
+        나야나.style.fontSize = '70px';
+        나야나.style.color = 'aqua';
+        나야나.style.fontWeight = 'bold';
+        나야나.style.textShadow = '5px 5px 3px #000';
+        나야나.style.lineHeight = 
+        window.innerHeight + 'px';
         // window.innerHeight - 현재 화면의 높이값을 리턴
 
         // 화면높이값
-        console.log("화면높이값:", window.innerHeight);
-      } ////////////// 사각사각 함수 ////////////////
+        console.log('화면높이값:',window.innerHeight);
+
+     } ////////////// 사각사각 함수 ////////////////
     </script>
     <style>
       html,
@@ -651,20 +668,19 @@
   </head>
   <body>
     <!-- 드라마 소개박스 -->
-    <p
-      class="pbox"
-      onclick="김비서()"
-      ondblclick="
-      // this 키워드 : 현재 요소 자신
-      // document.querySelector('pbox')[0]라고 안해도
-      // 요소 자신을 설정해준다!
+    <p class="pbox" onclick="김비서()"
+    title="더블클릭하시면 우영우가 나옵니다!"
+    ondblclick="
+    // this키워드 : 현재 요소 자신
+    // document.querySelector('.pbox')[0]라고 안해도
+    // 요소 자신을 설정해준다!
 
-      // 이미지 변경하기
-      this.style.backgroundImage = 'url(./images/woo.jpg)';
-      // html 변경하기
-      this.innerHTML = '우 to the 영 to the 우 <br>동 to the 그 to the 라미';
-    "
-    >
+    // 이미지변경하기
+      this.style.backgroundImage = 
+      'url(./images/woo.jpg)';
+    // html 변경하기
+      this.innerHTML = '우 to the 영 to the 우<br>동 to the 그 to the 라미';
+    ">
       나는 요즘 매일 생각한다! <br />
       도대체
       <span id="name"> </span>
@@ -674,12 +690,19 @@
     <div class="박스야">
       <!-- 원모양 -->
       <div class="원이야 on" onmouseover="맘대로해라(0,'별이 빛나는 밤')"></div>
-      <div class="원이야 on" onmouseover="맘대로해라(1,'론강의 별이 빛나는 밤')"></div>
-      <div class="원이야 on" onmouseover="맘대로해라(2,'밤의 카페 테라스')"></div>
+      <div
+        class="원이야 on"
+        onmouseover="맘대로해라(1,'론강의 별이 빛나는 밤')"
+      ></div>
+      <div
+        class="원이야 on"
+        onmouseover="맘대로해라(2,'밤의 카페 테라스')"
+      ></div>
     </div>
 
     <!-- 사각형으로 변할 전체 마무리 원박스 -->
-    <div class="넌뭐냐" title="더블클릭해주세요!" ondblclick="사각사각()"></div>
+    <div class="넌뭐냐" title="더블클릭해주세요!"
+    ondblclick="사각사각()"></div>
 
     <!-- <div class="pbox"></div>
     <a href="" class="pbox"></a>

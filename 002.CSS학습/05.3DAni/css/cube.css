@@ -27,8 +27,8 @@ body {
 }
 /* root인 html요소에 클래스를 부여하여
 변수값을 변경한다! */
-html.on:root {
-  --divide-num: 1.5;
+html.on:root{
+    --divide-num: 1.5;
 }
 
 /* 작동버튼 */
@@ -91,7 +91,7 @@ html.on:root {
 
   /* outline: 2px dotted blue; */
   /* Z축거리 변경에 대한 트랜지션 애니설정 */
-  transition: 0.5s;
+  transition: .5s;
 }
 /* 1. 앞면 */
 .cube span:nth-child(1) {
@@ -167,7 +167,7 @@ html.on:root {
 }
 /* 애니메이션 작동 클래스(.on) */
 .rotate-cube.on {
-  animation-play-state: running;
+    animation-play-state: running;
 }
 
 /* 큐브 애니메이션 키프레임 */

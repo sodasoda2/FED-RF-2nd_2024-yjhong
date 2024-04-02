@@ -40,11 +40,11 @@
         `1억 2천만 부 베스트셀러 원작
                 레전드 농구 만화 ‘슬램덩크’, 신작 영화로 탄생!
                 북산고 5인방이 스크린에서 살아 움직인다!
-
+                
                 1990년부터 1996년까지 ‘주간 소년 점프’(슈에이샤)에서 연재된 만화 ‘슬램덩크’는 한 번도 농구를 해본 적 없는 풋내기 강백호가 북산고교 농구부에서 겪는 성장 스토리를 그린 작품으로 전 세계에서 사랑받은 레전드 스포츠 만화다. 손에 땀을 쥐게 만드는 실감 나는 경기 묘사와 농구에 청춘을 거는 주인공들의 모습은 많은 이들에게 뜨거운 감동과 공감을 불러일으킨 바 있다.
-
+                
                 ‘슬램덩크’는 만화책으로 처음 등장해 TV 애니메이션과 게임 등 다양한 콘텐츠로 재탄생하며 연재된 지 30년이 넘은 현재까지도 여전한 인기를 자랑한다. 특히 우리나라에서 1,450만 부 이상의 판매고를 올리며 많은 판매량을 기록했고, 90년대 발매된 구판에 이어 2000년대에 출간된 완전판도 꾸준한 인기를 얻어 만화를 보지 않은 사람들도 ‘슬램덩크’의 명대사는 알 정도로 세대를 넘나드는 높인 인지도와 대중성을 보여주고 있다.
-
+                
                 이렇듯 시간과 세대를 뛰어넘은 올타임 레전드 ‘슬램덩크’의 새로운 영화 <더 퍼스트 슬램덩크>는 원작자 이노우에 다케히코가 직접 각본과 감독에 참여해 더욱 업그레이드된 작화로 눈길을 사로잡는다. 캐릭터 각자의 개성은 유지하면서 감정이 드러나는 표정, 유니폼과 운동화의 생생한 질감, 캐릭터의 얼굴에 흐르는 땀방울까지 디테일한 표현력이 더해져 높은 완성도를 선보인다. 원작 만화 속 그림이 그대로 스크린에서 살아 움직이는 북산고 5인방과의 만남은 관객들에게 설렘으로 다가갈 전망이다.`,
       ];
 
@@ -79,7 +79,8 @@
           "https://i.namu.wiki/i/B9FJyCEBX0NBWgO9-RyUBBhA35vTZvs5zlupdaGwbT8akX8hiXHkNreqqQGxQjUvYuoWkzzMtONJdsSxtM-EHg.webp",
         무빙: "https://i.namu.wiki/i/8CJyDKz0ziEmjqCaCmxWtdwadwQs5CTXvyOkII3VuUdsJMhqV6FzL19MJdrD2B7zDlEjDCIBJ5QKns0Yu81XAjbwo24tO9mFfCRUC23-4A5i81oOBcpSPcuKdohhElPp0a4gy_qcVUJ96axqSCYCHw.webp",
       };
-      /*******************************************
+
+      /********************************************* 
           [ 기능 요구사항 ]
           1. 영화/드라마 제목버튼을 클릭하면
           본 내용을 배열 데이터에서 선택하여
@@ -88,40 +89,40 @@
           배열 데이터와 매칭해 준다!
           3. 부가 기능으로 영화/드라마별 포스터를
           소개박스에 오버시 따라다니게 해준다!
-       *******************************************/
+      *********************************************/
       // 로딩구역 호출
       window.addEventListener("load", loadFn);
 
       // 로딩함수
       function loadFn() {
-        console.log("로딩됨");
+        console.log("로딩완료!");
         // 1. 대상선정
         // 1-1. 이벤트 대상 : 버튼들 .btngo
         const btngo = document.querySelectorAll(".btngo");
-
         // 1-2. 변경 대상 : 데이터표시 박스 .minfo
         const minfo = document.querySelectorAll(".minfo");
         console.log(btngo, minfo);
 
         // 2. 이벤트 설정하기
-        // .btngo 버튼들에게 모두 click 이벤트를 걸어준다!
+        // .btngo 버튼들에게 모두 click이벤트를 걸어준다!
         // 오리지널 for문으로 구성한다면...
-        // for (let i = 0; i < btngo.length; i++) {
-        //   btngo[i].onclick = () => {};
+        // for(let i=0; i<btngo.length; i++) {
+        //     btngo[i].onclick = ()=>{};
         // }
+
         // for of문은 (시;한;증) 설정이 필요없다!
         // -> 변수에 처음부터 btngo[i]와 같은 순번
         // 요소를 직접 제공한다!
         // 구문 : for(변수 of 배열/컬렉션){}
-        // -> 여기에서 변수는 배열값 또는 각요소임!
-
+        // -> 여기에서 변수는 배열값 또는 각 요소임!
         for (let x of btngo) {
-          // x는 각버튼요소 자신!
-          // console.log("x는?:", x);
+          // x는 각 버튼요소 자신!
+          // console.log('for of돌아!',x);
           x.onclick = () => {
-            // 1. 클릭된 버튼 텍스트
+            // 1. 클릭된 버튼텍스트
             let btxt = x.innerText;
             console.log(btxt);
+
             // 2. 버튼명과 배열변수와 매칭하기
             // 2-1.정보변수만들기
             let mvInfo;
@@ -151,89 +152,100 @@
               case "무빙":
                 mvInfo = mv8;
                 break;
-            } /// switch case /////////
+            } /// switch case ////
 
-            console.log("선택데이터:", mvInfo);
+            console.log("선택데이터:", mvInfo, Array.isArray(mvInfo));
 
             // 3. 출력박스에 정보 배분하기
-            // 출력박스요소 : .minfo -> minfo 변수
-            // 여러개니까 for of문을 사용
-            // mvInfo 에 담긴 배열 데이터를 기준
+            // 출력박스요소 : .minfo -> minfo변수
+            // 여러개니까  for of문 사용!
+            // mvInfo 에 담기 배열 데이터를 기준!
             let seq = 0;
             for (let x of mvInfo) {
+              console.log("배열값:", x);
               // 출력박스별로 값넣기
               minfo[seq].innerText = x;
               seq++;
-            } //////////// for of ////////////
-          }; //////////// click 이벤트 함수 ///
-        }
-        /**************************************
-         * 추가기능 : .wrap 박스에 마우스 무브시
-                    포스터박스 포인터 따라다니기
-         **************************************/
+            } /////// for of ////////////////
+          }; ////// click 이벤트 함수 ///
+        } //////////// for of ///////////
+
+        /************************************* 
+            추가기능 : .wrap 박스에 마우스 무브시
+                포스터박스 포인터 따라다니기
+        *************************************/
         // 1. 대상선정
-        // 1-1. 이벤트 대상 : .wrap
+        // 1-1.이벤트 대상 : .wrap
         const wrap = document.querySelector(".wrap");
-        // 1-2. 변경대상 : .flying-poster
+        // 1-2.변경대상 :  .flying-poster
         const moving = document.querySelector(".flying-poster");
+
         console.log(wrap, moving);
 
         // 2. 이벤트 설정 + 기능구현
-        // mousemove 이벤트 : 요소위에 마우스 움직일때
-        // 계속 발생함
+        // mousemove이벤트 : 요소위에 마우스 움직일때 계속 발생함
         wrap.onmousemove = (e) => {
           //e-이벤트전달변수
           // 이벤트 객체로 부터 x,y 포인터 위치값
-          // event.pageX -> x축좌표
-          // event.pageY -> y축좌표
+          // event.pageX ->  x축좌표
+          // event.pageY ->  y축좌표
           // 위치값 기준은 document 문서전체이며
-          // x축은 왼쪽끝, y축은 상단끝 기준임
+          // x축은 왼쪽끝, y축은 상단끝이 기준임
           // 숫자는 단위표시없는 px값
-          console.log("x:", e.pageX, "\ny:", e.pageY);
+
+          // console.log(
+          //     'x:',e.pageX,'\ny:',e.pageY);
 
           // 변경대상의 top,left 값을 변경한다!
           moving.style.top = e.pageY + "px";
           moving.style.left = e.pageX + "px";
-        }; ////// mousemove 이벤트함수 //////
+        }; //////// mousemove이벤트함수 //////
 
-        // .wrap에 마우스엔터시 포스터 보이기
-        // 영화제목박스가 비어있으면 "기본" 포스터
-        // 아니면 영화제목과 같은 포스터를 출력
-        // 비?집:놀이동산
-
+        // [.wrap에 마우스엔터시 포스터 보이기]
         wrap.onmouseenter = () => {
+          console.log(
+            "삼항연산결과:",
+            minfo[0].innerText == "" ? "기본" : minfo[0].innerText
+          );
+          // 포스터 박스 배경이미지 초기셋팅하기
+          // 영화제목박스가 비어있으면 "기본"포스터
+          // 아니면 영화제목과 같은 포스터를 출력
+          // 비 ? 집 : 놀이동산
+          // 첫번째입력박스비었냐 ? "기본" : 포스터명
+          // minfo[0]가 첫번째 입력박스임!
           moving.style.backgroundImage = `url(${
             img_src[minfo[0].innerText == "" ? "기본" : minfo[0].innerText]
           })`;
           moving.style.display = "block";
-        };
-        // .wrap에 마우스리브시 포스터 숨기기
+        }; //// mouseenter ////
+
+        // [.wrap에 마우스리브시 포스터 숨기기]
         wrap.onmouseleave = () => {
           moving.style.display = "none";
-        };
-      } /////////////// loadFn //////////////
-      ///////////////////////////////////////
+        }; ///// mouseleave ////
+      } //////////// loadFn 함수 ///////////
+      //////////////////////////////////////
 
-      /*******************************************
-                [ for of 문 ]
-                ___________________________
+      /******************************************* 
+        [ for of 문 ]
+        ___________________________
 
-                - 일반for문에 비해 간단한 형식의 for문
-                ((형식))
-                for(변수 of 배열/컬렉션){실행문}
+        - 일반for문에 비해 간단한 형식의 for문
+        ((형식))
+        for(변수 of 배열/컬렉션){실행문}
 
-                ((특징))
-                -> 시;한;증 이 필요없다!
-                -> 배열/컬렉션 개수만큼 알아서 돌아줌!
-                -> ES6에서 새롭게 등장함!
+        ((특징))
+        -> 시;한;증 이 필요없다!
+        -> 배열/컬렉션 개수만큼 알아서 돌아줌!
+        -> ES6에서 새롭게 등장함!
 
-                -> 부가기능:
-                문자데이터를 넣으면 한글자씩 돌아줌!
-                for(변수 of 문자데이터변수) {실행문}
-                -> 한글자씩 태그로 싸줄때 편리함!
+        -> 부가기능: 
+        문자데이터를 넣으면 한글자씩 돌아줌! 
+        for(변수 of 문자데이터변수) {실행문}
+        -> 한글자씩 태그로 싸줄때 편리함!
 
 
-            *******************************************/
+    *******************************************/
     </script>
     <style>
       .btns {
@@ -255,7 +267,7 @@
         font-size: 24px;
         line-height: 2;
 
-        cursor: none;
+        /* cursor: none; */
         /* 커서 none은 마우스 포인터가 없어짐!*/
         /* 참고: https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor */
       }
@@ -302,11 +314,11 @@
         width: 200px;
         height: 300px;
         background: url(./images/ala1.jpg) no-repeat center/cover;
-        border: 4px dashed hotpink;
-        border-radius: 20px;
 
         /* 포인터위치에서 정중앙이동 */
-        transform: translate(50%, -50%);
+        transform: translate(-50%, -50%);
+
+        pointer-events: none;
         /************************************** 
             [ 포인터 이벤트 속성 ]  
             pointer-events : auto;
@@ -315,12 +327,14 @@
             -> none : 대상 요소에 이벤트 무시함
             -> 아래쪽 요소의 이벤트가 발생함!
         **************************************/
-        pointer-events: none;
+
+        border: 4px dashed hotpink;
+        border-radius: 20px;
 
         /* 처음에 안보이게 하기 */
         display: none;
 
-        /* 트랜지션 설정하기 
+        /* 트랜지션 설정하기
         - 처음이동시 빨리움직이고 나중에 천천히
         ease-out 이 가장 자연스럽다! */
         transition: 0.3s ease-out;

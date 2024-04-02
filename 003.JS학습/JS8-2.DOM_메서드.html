@@ -51,8 +51,8 @@
       // querySelector 함수 짧게 만들기! ////
       const qs = (x) => document.querySelector(x);
       const qsa = (x) => document.querySelectorAll(x);
-      const qsEl = (ele, x) => ele.querySelector(x);
-      const qsaEl = (ele, x) => ele.querySelectorAll(x);
+      const qsEl = (ele,x) => ele.querySelector(x);
+      const qsaEl = (ele,x) => ele.querySelectorAll(x);
 
       // addEventListener 함수 짧게 만들기! ////
       const addEvt = (ele, evt, fn) => ele.addEventListener(evt, fn);
@@ -77,24 +77,29 @@
 
         // 2. 이벤트 설정하기
         for (let i = 0; i < cntSmenu; i++) {
-          smenu[i].onmouseenter = () => {
-            // 변경대상 : .smenu div
-            let target = qsEl(smenu[i], "div");
-            // 높이값 대상: .smenu ol
-            // 높이값은 offsetHeight 속성으로 읽어옴
-            let htVal = qsEl(smenu[i], "ol").offsetHeight;
-            console.log("하위메뉴높이:", htVal);
-            // 변경내용 : 높이값,트랜지션
-            target.style.height = htVal + "px";
-            target.style.transition = ".3s";
-          }; ///// mouseover 이벤트 함수 //////
 
-          smenu[i].onmouseleave = () => {
-            // 변경대상 : .smenu div
-            let target = qsEl(smenu[i], "div");
-            // 변경내용 : 높이값
-            target.style.height = "0";
-          }; ///// mouseout 이벤트 함수 //////
+            smenu[i].onmouseenter = ()=>{
+                // 변경대상 : .smenu div
+                let target = qsEl(smenu[i],'div');
+                // 높이값 대상: .smenu ol
+                // 높이값은 offsetHeight 속성으로 읽어옴
+                let htVal = qsEl(smenu[i],'ol').offsetHeight;
+                console.log('하위메뉴높이:',htVal);
+                // 변경내용 : 높이값,트랜지션
+                target.style.height = htVal+'px';
+                target.style.transition = '.3s';
+
+            }; ///// mouseover 이벤트 함수 //////
+
+            smenu[i].onmouseleave = ()=>{
+                // 변경대상 : .smenu div
+                let target = qsEl(smenu[i],'div');
+                // 변경내용 : 높이값
+                target.style.height = '0';
+
+            }; ///// mouseout 이벤트 함수 //////
+
+
         } /// for ///
 
         /*************************************************** 
@@ -110,6 +115,9 @@
         // -> 요소위에 오버시 / 아웃시
         // mouseenter / mouseleave -> 버블링발생안함!
         // -> 요소경계선 안으로 들어갈때 / 경계선을 떠날때
+
+
+
       } /////////////// loadFn 함수 /////////////////
       ////////////////////////////////////////////////
     </script>
