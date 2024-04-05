@@ -1,5 +1,8 @@
 // JS실험실 : 04.스크롤액션 JS
 
+// 부드러운 스크롤 작동함수 호출!
+startSS();
+
 // DOM 함수 객체 //////////////
 const myFn = {
   // 요소선택함수 ////////
@@ -17,46 +20,46 @@ const myFn = {
 }; /////// myFn 객체 /////////////
 
 /**************************************************** 
-      [ 스크롤 이벤트를 활용한 요소 등장액션 기능구현하기 ]
-  
-    1. 사용 이벤트 : scroll
-    -> 스크롤 바가 있는 페이지에서 또는 부분박스에서
-    스크롤 바가 이동할때 발생하는 이벤트
-    -> 주의: wheel 이벤트와는 다르다! 무엇이?
-    스크롤바가 이동하지 않아도 마우스 휠이 작동될때 발생한다!
-    (휠이벤트는 모바일에서 사용불가!)
-  
-    2. 스크롤바 위치값 알아내기 : 세로방향(Y축)
-      (1) window.scrollY (IE6~11지원안함)
-      (2) document.scrollingElement.scrollTop
-      (3) document.documentElement.scrollTop
-      (4) document.querySelector('html').scrollTop
-      -> 가로방향 스크롤바는 Y대신 X라는 문자를 사용함!
-  
-    3. 스크롤 등장 대상요소의 보이는 화면에서의 top값
-      getBoundingClientRect().top
-      -> 보이는 화면상단을 기준으로 이것보다 위로 갈경우
-      마이너스값을 리턴한다!
-      -> 기준: 보이는 화면크기를 기준하면 된다!
-      -> 윈도우화면 전체: window.innerHeight
-      예) 화면의 3/2는 window.innerHeight/3*2
-      예) 화면의 4/3는 window.innerHeight/4*3
-  
-      ((메서드명 조어 분석))
-      getBoundingClientRect()
-      get 가져와라
-      Bounding 경계선 (->바운딩박스 - 경계선을 가지는 직사각형박스)
-      Client 보이는 화면
-      Rect 사각형
-  
-      ->>> BouningClientRect 
-      -> 보이는 화면 사각형 경계선으로 부터의 거리를
-       리턴해주는 메서드
-       -> 상단으로 부터의 거리는 top속성
-       -> 왼쪽으로 부터의 거리는 left속성
-       공통적으로 경계선 아래쪽은 양수, 윗쪽은 음수
-  
-    ****************************************************/
+    [ 스크롤 이벤트를 활용한 요소 등장액션 기능구현하기 ]
+
+  1. 사용 이벤트 : scroll
+  -> 스크롤 바가 있는 페이지에서 또는 부분박스에서
+  스크롤 바가 이동할때 발생하는 이벤트
+  -> 주의: wheel 이벤트와는 다르다! 무엇이?
+  스크롤바가 이동하지 않아도 마우스 휠이 작동될때 발생한다!
+  (휠이벤트는 모바일에서 사용불가!)
+
+  2. 스크롤바 위치값 알아내기 : 세로방향(Y축)
+    (1) window.scrollY (IE6~11지원안함)
+    (2) document.scrollingElement.scrollTop
+    (3) document.documentElement.scrollTop
+    (4) document.querySelector('html').scrollTop
+    -> 가로방향 스크롤바는 Y대신 X라는 문자를 사용함!
+
+  3. 스크롤 등장 대상요소의 보이는 화면에서의 top값
+    getBoundingClientRect().top
+    -> 보이는 화면상단을 기준으로 이것보다 위로 갈경우
+    마이너스값을 리턴한다!
+    -> 기준: 보이는 화면크기를 기준하면 된다!
+    -> 윈도우화면 전체: window.innerHeight
+    예) 화면의 3/2는 window.innerHeight/3*2
+    예) 화면의 4/3는 window.innerHeight/4*3
+
+    ((메서드명 조어 분석))
+    getBoundingClientRect()
+    get 가져와라
+    Bounding 경계선 (->바운딩박스 - 경계선을 가지는 직사각형박스)
+    Client 보이는 화면
+    Rect 사각형
+
+    ->>> BouningClientRect 
+    -> 보이는 화면 사각형 경계선으로 부터의 거리를
+     리턴해주는 메서드
+     -> 상단으로 부터의 거리는 top속성
+     -> 왼쪽으로 부터의 거리는 left속성
+     공통적으로 경계선 아래쪽은 양수, 윗쪽은 음수
+
+  ****************************************************/
 
 // 1. 대상선정 ///////////////
 // 스크롤 등장대상 : .hide-el (별도의 클래스를 줌!)
@@ -73,8 +76,12 @@ myFn.addEvt(window, "scroll", showIt);
 // 3-1. 스크롤 등장액션 함수
 function showIt() {
   // 클래스 on넣기 함수 호출하기
-  // for of 문 호출
-  for (let x of scAct) addOn(x);
+
+  // for of 제어문 처리방법
+  // for (let x of scAct) addOn(x);
+
+  // forEach메서드 처리방법
+  scAct.forEach((ele) => addOn(ele));
 
   // let pos = myFn.getBCR(scAct[0]);
   // let pos2 = myFn.getBCR(scAct[1]);
@@ -89,13 +96,14 @@ function showIt() {
 
 // 스크롤 등장 기준설정 : 화면의 2/3
 const CRITERIA = (window.innerHeight / 3) * 2;
-console.log("기준값:", CRITERIA);
+// console.log("기준값:", CRITERIA);
 
 //// [ 클래스 on 넣기 함수 ] ///////////
 function addOn(ele) {
   // ele - 대상요소
   // 바운딩값 구하기
   let bcrVal = myFn.getBCR(ele);
+  // console.log(bcrVal);
 
   // 기준값보다 작을때 등장
   if (bcrVal < CRITERIA) ele.classList.add("on");
@@ -130,10 +138,10 @@ function showLetters() {
     else {
       // 글자일 경우 span태그 랩핑처리
       hcode += `
-        <span
-        style="transition-delay: ${seqNum * 0.08}s"
-        >
-        ${x}</span>`;
+      <span
+      style="transition-delay: ${seqNum * 0.08}s"
+      >
+      ${x}</span>`;
     } /// else ///
 
     // 중요!!! 지연시간에 곱해질 순번증가하기!
@@ -170,14 +178,14 @@ function showLetters() {
   // 화면절반크기 변수(포스터 위치에서 뺄값!)
   const gap = window.innerHeight / 2;
 
-  console.log("포스터위치:", posTop, gap);
+  // console.log("포스터위치:", posTop, gap);
 
   /////// 글자 이동함수 ////////////////////
   function moveTit() {
     // 스크롤 위치값 구하기
     let scTop = window.scrollY;
     // 호출확인
-    console.log("타이틀 이동!!!", scTop);
+    // console.log("타이틀 이동!!!", scTop);
 
     // 1. 맨위 원위치하기 : 첫번째 기준보다 작을때
     if (scTop < posTop[0] - gap) {
@@ -205,3 +213,47 @@ function showLetters() {
     }
   } /////////// moveTit 함수 //////////////
 } /////////// showLetters 함수 ///////////
+
+///////////////////////////////////////////
+/////// 떨어지는 여자 구현하기 //////////////
+///////////////////////////////////////////
+
+// 기본원리: 스크롤 이동에 따른 화면높이값 범위안에서
+// 떨어지는 여자 이미지가 아래쪽으로 이동애니함!
+// [비례식을 세운다!!]
+// 스크롤한계값 : 윈도우높이 = 스크롤이동값 : 이미지이동값
+// 이미지이동값 = 윈도우높이 * 스크롤이동값 / 스크롤한계값
+
+// 0. 변수값 셋팅하기
+// (1) 스크롤 한계값 : 전체document높이 - 화면높이
+// 전체document높이
+let docH = document.body.clientHeight;
+// 화면높이
+let winH = window.innerHeight;
+// 스크롤한계값
+let scLlimit = docH - winH;
+console.log("문서높이:", docH, "\n화면높이:", winH, "\n한계값:", scLlimit);
+
+// 1. 대상선정: 떨어지는 여자요소
+const woman = myFn.qs("#woman");
+
+// 2. 스크롤 이벤트 설정하기 : window가 이벤트 대상임!
+myFn.addEvt(window, "scroll", moveWoman);
+
+// 3. 함수 만들기 /////////
+function moveWoman() {
+  // 1. 스크롤 위치값
+  let scTop = window.scrollY;
+
+  // 2. 떨녀 top 값
+  let wTop = (winH * scTop) / scLlimit;
+  console.log("스위:", scTop, "\n여자:", wTop);
+  // 이미지이동값 =
+  // 윈도우높이(winH) * 스크롤이동값(scTop) / 스크롤한계값(scLlimit)
+
+  // 3. 떨녀에게 적용하기
+  woman.style.top = wTop + "px";
+
+  // 4. 맨위일때 윗쪽으로 숨기기
+  if (scTop === 0) woman.style.top = "-20%";
+} //////// moveWaman 함수 /////////////
