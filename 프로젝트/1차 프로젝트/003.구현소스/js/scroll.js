@@ -8,7 +8,7 @@ function scrollFn() {
   const intro = document.querySelector(".intro"); // 인트로 영역 요소 선택
   const divider = document.querySelectorAll(".divider"); // 디바이더 요소 선택
 
-  if (window.scrollY > 0) {
+  if (window.scrollY > 140) {
     // 스크롤이 일정 이상 내려갔을 때
     header.classList.add("header-fixed"); // 헤더에 fixed 클래스 추가
     gnb.style.display = "block"; // GNB 메뉴를 보이게 함
