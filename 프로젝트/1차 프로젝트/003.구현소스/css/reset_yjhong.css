@@ -16,7 +16,10 @@ h6,
 li,
 ul,
 ol,
-p {
+p,
+dl,
+dt,
+dd {
   margin: 0;
   padding: 0;
 }
