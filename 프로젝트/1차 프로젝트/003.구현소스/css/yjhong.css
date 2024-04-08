@@ -121,11 +121,11 @@ body * {
 }
 
 .banner .prev {
-  left: 0; /* 왼쪽에 정렬 */
+  left: 0;
 }
 
 .banner .next {
-  right: 0; /* 오른쪽에 정렬 */
+  right: 0;
 }
 
 /* 공지사항 영역 */
@@ -262,7 +262,6 @@ body * {
 .mento-title {
   text-align: center;
   line-height: 50px;
-  /* background: linear-gradient(to top, #facfff, #9fb9cf); */
   filter: brightness(120%);
   background: linear-gradient(to bottom, #41b8eb4d, rgba(243, 184, 236, 0.628));
 }
@@ -444,30 +443,6 @@ body * {
   font-weight: bold;
 }
 
-/* .indic {
-  display: flex;
-  position: absolute;
-  bottom: 150px;
-  left: 180px;
-}
-
-.indic li {
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-}
-
-.indic li img {
-  position: absolute;}
-.indic li img:last-child {
-
-  opacity: 0;
-}
-
-.indic li.on img:last-child {
-  opacity: 1;
-} */
-
 /*****************************/
 
 /* 스크롤을 내릴 때 fixed로 변하는 헤더 스타일 */
@@ -493,69 +468,84 @@ body * {
   /* 여기에 헤더가 fixed일 때 다르게 보이도록 CSS 스타일을 추가하세요 */
 }
 
-/* .test {
-  border-bottom: 1px solid rgb(244, 161, 244) !important;
-} */
-
 /**************************************
-  subpage1 area
+  * subpage1 area
 **************************************/
 
-.sub1-main-area {
+/* 채용정보 페이지 전체 영역 */
+.job-main-area {
   padding-top: 50px;
 }
 
-.recruitment-info {
+/* 채용 요약정보 상단 */
+.job-info-summary {
   background: #fef7ff;
   border-radius: 8px;
-  display: flex;
-  align-items: center;
-  height: 150px;
+  padding: 40px 70px 40px 70px;
 }
 
-.recruitment-info span {
-  padding: 0 20px 0 0;
+/* 채용 요약정보 상단 타이틀,건수 영역 */
+.job-info-summary-tc {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+/* 채용 요약정보 타이틀 */
+.job-info-summary-title {
   font-size: 18px;
 }
 
-.alba-title {
+/* 채용 요약정보 건수 */
+.job-info-summary-count {
+  font-family: "Jua", sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #b736be;
+}
+
+/* 채용 정보 메인 타이틀 */
+.job-main-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 60px 0 20px 0;
 }
 
-.alba-list-title {
+/* 채용 정보 메인 타이틀 옆 전체보기 */
+.job-main-title span {
+  font-size: 15px;
+  text-decoration: underline;
+}
+
+/* 채용 정보 메인 리스트 타이틀 */
+.job-list-title {
   display: flex;
-  justify-content: space-between;
-  padding-top: 20px;
+  justify-content: space-around;
+  padding: 15px 0 15px 0;
   border-top: 1px solid #000;
+  border-bottom: 1px solid #c6c6c6;
 }
 
-.alba-list-title span {
-  text-align: center;
+/* 채용 정보 메인 리스트 타이틀 */
+.job-list-title span {
   font-size: 16px;
-  color: #363636;
+  color: #333;
   font-weight: bold;
+  text-align: center;
 }
 
-.alba-list-title span:nth-child(1),
-.alba-list-title span:nth-child(4),
-.alba-list-title span:nth-child(5) {
+/* 채용 정보 메인 리스트 타이틀 위치 조정 */
+.job-list-title span:nth-child(1),
+.job-list-title span:nth-child(4),
+.job-list-title span:nth-child(5) {
   flex: 1.5;
 }
 
-.alba-list-title span:nth-child(2) {
+.job-list-title span:nth-child(2) {
   flex: 4;
 }
 
-.alba-list-title span:nth-child(3) {
+.job-list-title span:nth-child(3) {
   flex: 2;
-}
-
-.test {
-  display: flex;
-  align-items: center;
-}
-
-.test dl {
-  display: flex;
-  flex-direction: column;
 }
