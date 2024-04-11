@@ -25,7 +25,12 @@ import * as txtData from "./text_data.js";
 // console.log(
 //myFn, mTitle, sTitle, personInfo, mvData);
 // console.log(myFn, mTit, sTit, pInfo, mdt);
-console.log(txtData, txtData.mTitle);
+console.log(
+  txtData,
+  txtData.mTitle,
+  txtData.myObj.name,
+  txtData.myFunc("개발자")
+);
 
 // [export default 로 내보낸 단일 함수 불러오기]
 // import makeMessage from "./msg_format.js";
@@ -125,4 +130,3 @@ txtData.mvData.forEach((v) => {
         </ol>
     `;
 }); ////////// forEach ///////////
-ㅓ;

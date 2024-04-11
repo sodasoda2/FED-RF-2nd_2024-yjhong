@@ -4,7 +4,7 @@ window.addEventListener("scroll", scrollFn);
 function scrollFn() {
   const header = document.querySelector("header"); // 헤더 요소 선택
   const gnb = document.querySelector(".gnb"); // GNB 메뉴 요소 선택
-  const lnb = document.querySelector(".lnb"); // LNB 메뉴 요소 선택
+  const top = document.querySelector(".top-menu"); // LNB 메뉴 요소 선택
   const intro = document.querySelector(".intro"); // 인트로 영역 요소 선택
   const divider = document.querySelectorAll(".divider"); // 디바이더 요소 선택
 
@@ -13,7 +13,7 @@ function scrollFn() {
     header.classList.add("header-fixed"); // 헤더에 fixed 클래스 추가
     gnb.style.display = "block"; // GNB 메뉴를 보이게 함
     // 다른 부분은 숨김 처리
-    lnb.style.display = "none";
+    top.style.display = "none";
     intro.style.display = "none";
     divider.forEach(function (div) {
       div.style.display = "none";
@@ -31,7 +31,7 @@ function scrollFn() {
     gnb.style.display = "none"; // GNB 메뉴를 숨김
 
     // 다른 부분은 보이게 처리
-    lnb.style.display = "flex";
+    top.style.display = "flex";
     intro.style.display = "block";
     divider.forEach(function (div) {
       div.style.display = "block";

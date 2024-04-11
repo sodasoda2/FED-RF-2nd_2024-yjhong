@@ -1,34 +1,43 @@
 @charset "utf-8";
 
+/*********************************** 
+  * 공통모듈 CSS 
+***********************************/
 /* Rest CSS */
-@import url(./reset_yjhong.css);
+@import url(./reset.css);
 
 /* Core CSS */
-@import url(./core_yjhong.css);
+@import url(./core.css);
 
 /* 12 Grid CSS */
-@import url(./grid_12_flex_yjhong.css);
+@import url(./grid_12_flex.css);
 
 /* Common CSS */
-@import url(./common_yjhong.css);
+@import url(./common.css);
+
+/*********************************** 
+  * 서브페이지 CSS 
+***********************************/
+@import url(./subpage.css);
 
 /* 공사중표시 */
+
 body * {
   /* outline: 1px dashed plum; */
 }
 
 /******************* 상단영역 *******************/
-.lnb-area {
+.lnb {
   background-color: rgb(250, 250, 250);
 }
 
-.lnb {
+.top-menu {
   display: flex;
   justify-content: flex-end;
   line-height: 35px;
 }
 
-.lnb a {
+.top-menu a {
   font-size: 13px;
   margin-left: 20px;
   color: black;
@@ -68,6 +77,131 @@ body * {
 
 .auth .hr {
   padding: 0 7px;
+}
+
+/* gnb 상위메뉴 */
+.gnb {
+  display: flex !important;
+  align-items: center;
+}
+
+.gnb ul {
+  display: flex;
+  white-space: nowrap;
+}
+
+/* gnb 상위메뉴 마지막 li */
+.gnb ul li:last-child {
+  margin-left: auto;
+}
+
+/* gnb 상위메뉴요소 */
+.gnb ul li a {
+  color: black;
+  font-size: 17px;
+}
+
+/* gnb 상위메뉴요소 hover 시*/
+.gnb > ul > li > a:hover {
+  color: #2d65f2;
+}
+
+/* gnb 상위메뉴 요소의 a만 선택 (하위요소 a 미선택) */
+.gnb > ul > li > a {
+  padding: 17px 70px;
+  font-size: 17.5px;
+}
+
+/* gnb 상위메뉴 요소의 첫번째 a */
+.gnb > ul > li > a:first-child {
+  padding-left: 0px;
+}
+
+/* gnb 상위메뉴 요소의 마지막 a */
+.gnb > ul > li > a:last-child {
+  padding-right: 0px;
+}
+
+/* gnb 상위,하위 a요소 */
+.gnb a {
+  display: block;
+}
+
+/* 상위메뉴만 적용하기 
+직계자식(>)선택으로 상위메뉴만 선택함 */
+.gnb ul > li {
+  position: relative;
+}
+
+/* gnb 하위메뉴 */
+.smenu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-80%);
+  width: 120px;
+  background-color: white;
+  line-height: 30px;
+  max-height: 0;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* 상위li오버시 서브메뉴 보이기 */
+.gnb ul > li:hover .smenu {
+  max-height: 210px;
+  box-shadow: 0 0 5px rgb(226, 226, 226);
+}
+
+/* 하위메뉴 리스트들 */
+.smenu ol {
+  text-align: center;
+}
+
+/* 하위메뉴 li 요소 */
+.smenu ol li {
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+/* 하위메뉴 a 요소 */
+.smenu ol li a {
+  padding: 6%;
+  font-size: 14.5px;
+  color: rgb(63, 63, 63);
+}
+
+/* 하위메뉴 오버시 */
+.gnb ul > li:hover .smenu li {
+  opacity: 1;
+}
+
+/* 하위메뉴 li요소에 오버시 */
+.gnb ul > li .smenu li:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+/* 하위메뉴 a요소에 오버시 */
+.gnb ul > li .smenu li a:hover {
+  color: rgb(84, 84, 84);
+  font-weight: bold;
+}
+
+/* 스크롤을 내릴 때 fixed로 변하는 헤더 스타일 */
+.header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff; /* 원하는 배경색으로 변경 */
+  z-index: 1000; /* 다른 요소 위에 표시하기 위해 z-index 설정 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+}
+
+/* 스크롤시 상단 홈아이콘 출력 */
+.homeIcon {
+  font-size: 20px;
+  color: rgb(52, 52, 52);
+  margin-right: 60px;
 }
 
 /******************* 메인영역 *******************/
@@ -166,7 +300,6 @@ body * {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border-bottom: 1px solid #e3cfee; */
   line-height: 40px;
   padding-bottom: 10px;
 }
@@ -330,222 +463,3 @@ body * {
 }
 
 /******* 테스트 코드 영역 ********/
-.homeIcon {
-  font-size: 20px;
-  color: rgb(52, 52, 52);
-  margin-right: 60px;
-}
-
-/* gnb 상위메뉴 */
-.gnb {
-  display: flex !important;
-  align-items: center;
-}
-
-.gnb ul {
-  display: flex;
-  white-space: nowrap;
-}
-
-/* gnb 상위메뉴 마지막 li */
-.gnb ul li:last-child {
-  margin-left: auto;
-}
-
-/* gnb 상위메뉴요소 */
-.gnb ul li a {
-  color: black;
-  font-size: 17px;
-}
-
-/* gnb 상위메뉴요소 hover 시*/
-.gnb > ul > li > a:hover {
-  color: #2d65f2;
-}
-
-/* gnb 상위메뉴 요소의 a만 선택 (하위요소 a 미선택) */
-.gnb > ul > li > a {
-  padding: 17px 70px;
-  font-size: 17.5px;
-}
-
-/* gnb 상위메뉴 요소의 첫번째 a */
-.gnb > ul > li > a:first-child {
-  padding-left: 0px;
-}
-
-/* gnb 상위메뉴 요소의 마지막 a */
-.gnb > ul > li > a:last-child {
-  padding-right: 0px;
-}
-
-/* gnb 상위,하위 a요소 */
-.gnb a {
-  display: block;
-}
-
-/* 상위메뉴만 적용하기 
-직계자식(>)선택으로 상위메뉴만 선택함 */
-.gnb ul > li {
-  position: relative;
-}
-
-/* gnb 하위메뉴 */
-.smenu {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-80%);
-  width: 120px;
-  background-color: white;
-  line-height: 30px;
-  max-height: 0;
-  overflow: hidden;
-  z-index: 1000;
-}
-
-/* 상위li오버시 서브메뉴 보이기 */
-.gnb ul > li:hover .smenu {
-  max-height: 210px;
-  box-shadow: 0 0 5px rgb(226, 226, 226);
-}
-
-/* 하위메뉴 리스트들 */
-.smenu ol {
-  text-align: center;
-}
-
-/* 하위메뉴 li 요소 */
-.smenu ol li {
-  opacity: 0;
-  transition: all 0.4s;
-}
-
-/* 하위메뉴 a 요소 */
-.smenu ol li a {
-  padding: 6%;
-  font-size: 14.5px;
-  color: rgb(63, 63, 63);
-}
-
-/* 하위메뉴 오버시 */
-.gnb ul > li:hover .smenu li {
-  opacity: 1;
-}
-
-/* 하위메뉴 li요소에 오버시 */
-.gnb ul > li .smenu li:hover {
-  background-color: rgb(245, 245, 245);
-}
-
-/* 하위메뉴 a요소에 오버시 */
-.gnb ul > li .smenu li a:hover {
-  color: rgb(84, 84, 84);
-  font-weight: bold;
-}
-
-/*****************************/
-
-/* 스크롤을 내릴 때 fixed로 변하는 헤더 스타일 */
-.header-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #ffffff; /* 원하는 배경색으로 변경 */
-  z-index: 1000; /* 다른 요소 위에 표시하기 위해 z-index 설정 */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
-}
-
-/* 스크롤을 내릴 때 로고와 메뉴 등을 다르게 보이게 하는 스타일 */
-.header-fixed .lnb a,
-.header-fixed .intro {
-  /* 여기에 헤더가 fixed일 때 다르게 보이도록 CSS 스타일을 추가하세요 */
-}
-
-/* 스크롤을 내릴 때 검색 박스와 로그인/회원가입 버튼 등을 다르게 보이게 하는 스타일 */
-.header-fixed .search,
-.header-fixed .auth {
-  /* 여기에 헤더가 fixed일 때 다르게 보이도록 CSS 스타일을 추가하세요 */
-}
-
-/**************************************
-  * subpage1 area
-**************************************/
-
-/* 채용정보 페이지 전체 영역 */
-.job-main-area {
-  padding-top: 50px;
-}
-
-/* 채용 요약정보 상단 */
-.job-info-summary {
-  background: #fef7ff;
-  border-radius: 8px;
-  padding: 40px 70px 40px 70px;
-}
-
-/* 채용 요약정보 상단 타이틀,건수 영역 */
-.job-info-summary-tc {
-  display: flex;
-  justify-content: space-between;
-  width: 30%;
-}
-
-/* 채용 요약정보 타이틀 */
-.job-info-summary-title {
-  font-size: 18px;
-}
-
-/* 채용 요약정보 건수 */
-.job-info-summary-count {
-  font-family: "Jua", sans-serif;
-  font-size: 28px;
-  font-weight: 500;
-  color: #b736be;
-}
-
-/* 채용 정보 메인 타이틀 */
-.job-main-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 60px 0 20px 0;
-}
-
-/* 채용 정보 메인 타이틀 옆 전체보기 */
-.job-main-title span {
-  font-size: 15px;
-  text-decoration: underline;
-}
-
-/* 채용 정보 메인 리스트 타이틀 */
-.job-list-title {
-  display: flex;
-  justify-content: space-around;
-  padding: 15px 0 15px 0;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #c6c6c6;
-}
-
-/* 채용 정보 메인 리스트 타이틀 */
-.job-list-title span {
-  font-size: 16px;
-  color: #333;
-  font-weight: bold;
-  text-align: center;
-}
-
-/* 채용 정보 메인 리스트 타이틀 위치 조정 */
-.job-list-title span:nth-child(1),
-.job-list-title span:nth-child(4),
-.job-list-title span:nth-child(5) {
-  flex: 1.5;
-}
-
-.job-list-title span:nth-child(2) {
-  flex: 4;
-}
-
-.job-list-title span:nth-child(3) {
-  flex: 2;
-}

@@ -13,9 +13,61 @@ import slideFn from "./slide.js";
 // 데이터 셋팅 불러오기 //////
 import * as dkbData from "../data/dkb_data.js";
 // import { previewData } from '../data/dkb_data.js';
+
+// GNB 메뉴 데이터 불러오기 ///////
+import gnbData from "../data/gnb_data.js";
+
 ///////////////////////////////////////////////
 
 /// 구현코드 파트 //////////////
+
+// GNB 메뉴 코드 넣기
+// 대상: .gnb
+// 데이터: gnbData는 객체니까 배열용 map() 메서드 못씀!
+// 그래서 gnbData를 키배열로 변환해서 사용함!
+// 그리고 이 객체의 key는 상위메뉴 이기도 함!
+// Object.keys(객체) -> 해당 객체의 속성명(키) 배열생성!
+
+console.log(Object.values(gnbData));
+
+myFn.qs(".gnb").innerHTML = `
+  <ul>
+    ${Object.keys(gnbData)
+      .map(
+        (v) => `
+        <li>
+          <a href="#">${v}</a>
+          ${
+            // 서브메뉴 "없음"이면 빈값
+            // 아니면 서브메뉴 출력
+            // gnbData[키] -> 값을 가져옴!
+            gnbData[v] == "없음"
+              ? ""
+              : `
+                <div class="smenu">
+                  <div class="swrap">
+                    <h2>${v}</h2>
+                    <ol>
+                    ${gnbData[v]
+                      .map(
+                        (vSub) => `
+                    <li>
+                      <a href="#">${vSub}</a>
+                    </li>
+                    `
+                      )
+                      .join("")}
+                    </ol>
+                  </div>
+                </div>  
+            `
+          }
+        </li>
+      `
+      )
+      .join("")}
+    </ul>
+`;
 
 // 1. 부드러운 스크롤 호출
 // startSS();
@@ -60,6 +112,18 @@ introMv.onclick = () => {
   const previewBox = myFn.qs(".preview-box");
   // 데이터: dkb_data.js 의 previewData배열
   const pData = dkbData.previewData;
+  // 데이터원본의 정렬을 내림차순으로 변경!
+  // console.log(
+
+  // 배열값인 객체의 idx키값을 기준으로 내림차순
+  // 내림차순 정렬을 할때 문자형 숫자이므로
+  // Number() 숫자형변환 메서드로 싸서 숫자로써
+  // 비교하여 정확한 내림차순이 되도록 한다!
+
+  pData.sort((a, b) =>
+    Number(a.idx) == Number(b.idx) ? 0 : Number(a.idx) < Number(b.idx) ? 1 : -1
+  );
+  // );
   // 구조: ul>li>h3+p
 
   // 1. 8개만 데이터를 html로 구성하여 넣는다!

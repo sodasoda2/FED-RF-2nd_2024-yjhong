@@ -3,30 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="./css/yjhong.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <script type="module" src="./js/main.js"></script>
     <script src="./js/slide.js" defer></script>
     <script src="./js/scroll.js" defer></script>
     <title>레슨모아</title>
   </head>
+
   <body>
+    <!-- 전체 페이지 영역 -->
     <div class="container">
-      <!-- 최상단 영역 -->
+      <!-- 상단 영역 -->
       <header>
-        <div class="lnb-area">
-          <div class="inner">
-            <nav class="lnb">
-              <a href="#none"> 고객센터 </a>
-              <a href="#none"> 광고문의 </a>
-              <a href="#none"> 제휴문의 </a>
-            </nav>
-          </div>
-        </div>
+        <!-- lnb 영역 -->
+        <div class="lnb"></div>
         <div class="divider"></div>
-        <!-- 인트로 영역 -->
-        <div class="inner">
-          <nav class="intro">
+        <!-- intro 영역 -->
+        <nav class="intro">
+          <div class="inner">
             <div class="cont-box pt-30">
               <div class="col-2 logo">
                 <a href="#none">
@@ -34,11 +28,7 @@
                 </a>
               </div>
               <div class="col-5 search">
-                <input
-                  class="search-input"
-                  type="text"
-                  placeholder="검색어를 입력하세요"
-                />
+                <input class="search-input" type="text" placeholder="검색어를 입력하세요" />
                 <div class="search-icon"></div>
               </div>
               <div class="col-5 auth">
@@ -51,10 +41,10 @@
                 </span>
               </div>
             </div>
-          </nav>
-        </div>
+          </div>
+        </nav>
         <div class="divider pt-30"></div>
-        <!-- GNB 영역 -->
+        <!-- gnb 영역 -->
         <div class="inner">
           <nav class="gnb">
             <ul>
@@ -140,26 +130,10 @@
               <div class="col-8">
                 <!-- 배너 영역 -->
                 <div class="banner inbox">
-                  <img
-                    src="./images/banner_1.jpg"
-                    class="banner-image active"
-                    alt="배너1"
-                  />
-                  <img
-                    src="./images/banner_2.png"
-                    class="banner-image"
-                    alt="배너2"
-                  />
-                  <img
-                    src="./images/banner_3.png"
-                    class="banner-image"
-                    alt="배너3"
-                  />
-                  <img
-                    src="./images/banner_4.png"
-                    class="banner-image"
-                    alt="배너4"
-                  />
+                  <img src="./images/banner_1.jpg" class="banner-image active" alt="배너1" />
+                  <img src="./images/banner_2.png" class="banner-image" alt="배너2" />
+                  <img src="./images/banner_3.png" class="banner-image" alt="배너3" />
+                  <img src="./images/banner_4.png" class="banner-image" alt="배너4" />
                   <i class="prev fa-solid fa-chevron-left"></i>
                   <i class="next fa-solid fa-chevron-right"></i>
                 </div>
@@ -401,40 +375,28 @@
                   <tbody>
                     <tr>
                       <td>홍길동</td>
-                      <td>
-                        아이들을 사랑하는마음으로 열심을 다해 성심껏
-                        가르치겠습니다.
-                      </td>
+                      <td>아이들을 사랑하는마음으로 열심을 다해 성심껏 가르치겠습니다.</td>
                       <td>피아노, 반주</td>
                       <td>서울 종로구</td>
                       <td>3</td>
                     </tr>
                     <tr>
                       <td>홍길동</td>
-                      <td>
-                        아이들을 사랑하는마음으로 열심을 다해 성심껏
-                        가르치겠습니다.
-                      </td>
+                      <td>아이들을 사랑하는마음으로 열심을 다해 성심껏 가르치겠습니다.</td>
                       <td>피아노, 반주</td>
                       <td>서울 종로구</td>
                       <td>3</td>
                     </tr>
                     <tr>
                       <td>홍길동</td>
-                      <td>
-                        아이들을 사랑하는마음으로 열심을 다해 성심껏
-                        가르치겠습니다.
-                      </td>
+                      <td>아이들을 사랑하는마음으로 열심을 다해 성심껏 가르치겠습니다.</td>
                       <td>피아노, 반주</td>
                       <td>서울 종로구</td>
                       <td>3</td>
                     </tr>
                     <tr>
                       <td>홍길동</td>
-                      <td>
-                        아이들을 사랑하는마음으로 열심을 다해 성심껏
-                        가르치겠습니다.
-                      </td>
+                      <td>아이들을 사랑하는마음으로 열심을 다해 성심껏 가르치겠습니다.</td>
                       <td>피아노, 반주</td>
                       <td>서울 종로구</td>
                       <td>3</td>
@@ -450,22 +412,19 @@
         <div class="inner">
           <div class="footer-info">
             <p>
-              레슨모아 고객센터 : xx-xxxx-xxxx (평일 09:00 - 18:00, 점심시간
-              12:00 - 13:00, 주말·공휴일 휴무)
+              레슨모아 고객센터 : xx-xxxx-xxxx (평일 09:00 - 18:00, 점심시간 12:00 - 13:00,
+              주말·공휴일 휴무)
               <br />
               이메일 : xx@naver.com / Fax : xx-xxxx-xxxx
               <br /><br />
-              (주) 레슨모아, 우 : 08378, 서울특별시 구로구 디지털로34길 43 ,
-              대표: xxx
+              (주) 레슨모아, 우 : 08378, 서울특별시 구로구 디지털로34길 43 , 대표: xxx
               <br />
-              사업자등록 : xxx-xx-xxxxx / 직업정보제공사업 : 서울 관악 제
-              xxxx-x호 / 통신판매업 : 제 xxxx-xxxxx호
+              사업자등록 : xxx-xx-xxxxx / 직업정보제공사업 : 서울 관악 제 xxxx-x호 / 통신판매업 : 제
+              xxxx-xxxxx호
               <br />
             </p>
           </div>
-          <div class="footer-copyright">
-            Copyright &copy; (주)레슨모아. All rights reserved.
-          </div>
+          <div class="footer-copyright">Copyright &copy; (주)레슨모아. All rights reserved.</div>
           <div class="footer-social">
             <i class="fa-brands fa-youtube"></i>
             <i class="fa-brands fa-instagram"></i>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Chart with D3.js</title>
+    <style>
+      /* CSS 스타일 */
+      #chart-container {
+        width: 600px;
+        height: 300px;
+        border: 1px solid #ccc;
+      }
+      .bar {
+        fill: steelblue;
+      }
+    </style>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <div id="chart-container">
+      <!-- SVG 요소 추가 -->
+      <svg></svg>
+    </div>
+    <script>
+      // 데이터 가져오기 및 차트 업데이트
+      function updateChart(data) {
+        const svg = d3.select("#chart-container svg");
+
+        const bars = svg.selectAll(".bar").data(data);
+
+        // 새로운 데이터를 표시할 막대 추가
+        bars
+          .enter()
+          .append("rect")
+          .attr("class", "bar")
+          .attr("x", (d, i) => i * 40)
+          .attr("width", 30)
+          .attr("y", 300)
+          .transition()
+          .duration(1000)
+          .attr("y", (d) => 300 - d * 3) // 1:3 비율로 변환하여 높이 조정
+          .attr("height", (d) => d * 3); // 1:3 비율로 변환하여 높이 조정
+
+        // 데이터 업데이트
+        bars
+          .transition()
+          .duration(1000)
+          .attr("x", (d, i) => i * 40)
+          .attr("width", 30)
+          .attr("y", (d) => 300 - d * 3)
+          .attr("height", (d) => d * 3);
+
+        // 데이터 제거
+        bars.exit().remove();
+      }
+
+      // 데이터 가져오기 및 주기적으로 차트 업데이트
+      function fetchDataAndUpdateChart() {
+        fetch("https://api.covidtracking.com/v1/us/current.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const positiveCases = data[0].positive;
+            updateChart([positiveCases]); // 확진자 수만 전달
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+
+      // 초기 실행
+      fetchDataAndUpdateChart();
+      // 3초마다 데이터 업데이트
+      setInterval(fetchDataAndUpdateChart, 3000);
+    </script>
+  </body>
+</html>
