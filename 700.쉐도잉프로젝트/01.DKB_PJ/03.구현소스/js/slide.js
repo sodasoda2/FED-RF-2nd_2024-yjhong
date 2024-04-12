@@ -12,7 +12,8 @@ export default function slideFn() {
 
   // addEvent 함수
   // ele - 요소, evt - 이벤트, fn - 함수
-  const addEvt = (ele, evt, fn) => ele.addEventListener(evt, fn);
+  const addEvt = (ele, evt, fn) => 
+  ele.addEventListener(evt, fn);
 
   // HTML태그 로딩후 loadFn함수 호출! ///
   addEvt(window, "DOMContentLoaded", loadFn);
@@ -59,7 +60,7 @@ export default function slideFn() {
     기능: 로딩 후 버튼 이벤트 및 기능구현
 ******************************************/
   function loadFn() {
-    console.log("로딩완료!");
+    // console.log("로딩완료!");
 
     // 이동버튼 대상:  .abtn
     const abtn = qsa(".abtn");
@@ -74,7 +75,7 @@ export default function slideFn() {
     for (let i = 0; i < 3; i++) {
       // 슬라이드 넣기
       slide.innerHTML += `
-    <li data-seq="${i}" class="snum-0${i + 1}"></li>    
+    <li data-seq="${i}" class="snum-0${i+1}"></li>    
     `;
       // 블릿 넣기
       indic.innerHTML += `
@@ -280,31 +281,38 @@ export default function slideFn() {
       }, 5000);
     } ////////// clearAuto ////////////
 
+
     // 이동버튼 이벤트 설정하기 //////
     // 이벤트대상: 이동버튼 영역 - .evt-cover aside
-    const evtCover = qsa(".evt-cover aside");
+    const evtCover = qsa('.evt-cover aside');
     // 변경대상: 버튼 - .abtn -> abtn변수에 할당됨!
-    evtCover.forEach((ele, idx) => {
+    evtCover.forEach((ele,idx)=>{
       // console.log(ele);
       // 이벤트 셋팅하기1 : mouseover - 버튼보이기
-      ele.onmouseover = () => {
-        abtn[idx].style.display = "block";
+      ele.onmouseover = ()=>{
+        abtn[idx].style.display = 'block';
       }; /// mouseover ///
 
       // 이벤트 셋팅하기2 : mouseout - 버튼숨기기
-      ele.onmouseout = () => {
-        abtn[idx].style.display = "none";
+      ele.onmouseout = ()=>{
+        abtn[idx].style.display = 'none';
       }; /// mouseout ///
 
       // 이벤트 셋팅하기3 : mousemove - 버튼따라오기
-      ele.onmousemove = (e) => {
-        abtn[idx].style.top = e.pageY + "px";
-        abtn[idx].style.left = e.pageX + "px";
+      ele.onmousemove = (e)=>{
+        abtn[idx].style.top = e.pageY+'px';
+        abtn[idx].style.left = e.pageX+'px';
       }; /// mousemove ///
 
       // 이벤트 셋팅하기4 : click - 이동함수 호출!
       ele.onclick = goSlide;
     }); ///// forEach /////////////////
+
+
+
+
+
+
   } //////////////// loadFn 함수 ///////////////
   /////////////////////////////////////////////
 } ///////////// slideFn 함수 ///////////////
