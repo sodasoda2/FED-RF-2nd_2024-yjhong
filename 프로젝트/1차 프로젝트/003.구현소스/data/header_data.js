@@ -2,12 +2,31 @@
 
 const lnbData = ["고객센터", "광고문의", "제휴문의"];
 
-const gnbData = {
-  구인정보: ["전체", "지역별", "분야별"],
-  강사정보: ["전체", "지역별", "분야별"],
-  중고거래: ["전체", "지역별", "분야별"],
-  레슨멘토: ["전체", "지역별", "분야별"],
-  "이력서 등록": "없음",
+const hInfoData = {
+  logoImg: "logo",
 };
 
-export { lnbData, gnbData };
+const gnbData = [
+  {
+    title: "구인정보",
+    submenu: ["전체", "지역별", "분야별"],
+  },
+  {
+    title: "강사정보",
+    submenu: ["전체", "지역별", "분야별"],
+  },
+  {
+    title: "중고거래",
+    submenu: ["전체", "지역별", "분야별"],
+  },
+  {
+    title: "레슨멘토",
+    submenu: ["전체", "지역별", "분야별"],
+  },
+  {
+    title: "이력서 등록",
+    submenu: "없음",
+  },
+];
+
+export { lnbData, hInfoData, gnbData };

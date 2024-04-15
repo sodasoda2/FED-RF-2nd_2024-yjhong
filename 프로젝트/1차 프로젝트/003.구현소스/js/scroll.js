@@ -3,9 +3,9 @@ window.addEventListener("scroll", scrollFn);
 
 function scrollFn() {
   const header = document.querySelector("header"); // 헤더 요소 선택
-  const gnb = document.querySelector(".gnb"); // GNB 메뉴 요소 선택
+  const gnb = document.querySelector(".gnb-menu"); // GNB 메뉴 요소 선택
   const top = document.querySelector(".top-menu"); // LNB 메뉴 요소 선택
-  const intro = document.querySelector(".intro"); // 인트로 영역 요소 선택
+  const hInfo = document.querySelector(".header-info"); // 인트로 영역 요소 선택
   const divider = document.querySelectorAll(".divider"); // 디바이더 요소 선택
 
   if (window.scrollY > 140) {
@@ -14,7 +14,7 @@ function scrollFn() {
     gnb.style.display = "block"; // GNB 메뉴를 보이게 함
     // 다른 부분은 숨김 처리
     top.style.display = "none";
-    intro.style.display = "none";
+    hInfo.style.display = "none";
     divider.forEach(function (div) {
       div.style.display = "none";
     });
@@ -32,7 +32,7 @@ function scrollFn() {
 
     // 다른 부분은 보이게 처리
     top.style.display = "flex";
-    intro.style.display = "block";
+    hInfo.style.display = "block";
     divider.forEach(function (div) {
       div.style.display = "block";
     });

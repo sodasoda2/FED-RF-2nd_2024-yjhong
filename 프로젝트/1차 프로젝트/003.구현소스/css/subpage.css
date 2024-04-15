@@ -85,9 +85,3 @@
 .job-list-title span:nth-child(3) {
   flex: 2;
 }
-
-.vertical-divider {
-  border-left: 1px solid #000; /* 세로 구분선의 스타일과 색상을 지정합니다 */
-  height: auto; /* 구분선의 높이를 부모 요소의 높이와 동일하게 설정합니다 */
-  margin: 0 10px; /* 구분선과 주변 내용 사이의 간격을 조정합니다 */
-}

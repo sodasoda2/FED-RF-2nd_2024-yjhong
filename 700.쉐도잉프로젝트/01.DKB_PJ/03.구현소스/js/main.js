@@ -19,7 +19,7 @@ import * as dkbData from "../data/dkb_data.js";
 /// 구현코드 파트 //////////////
 
 // 1. 부드러운 스크롤 호출
-// startSS();
+startSS();
 
 // console.log('모듈로 메인JS호출!!!',
 // document.querySelector('.top-menu'));
@@ -168,8 +168,8 @@ introMv.onclick = () => {
   posterBox.innerHTML = hcode;
 })(); //// 대표이미지 코드랩핑구역 종료 /////////
 
-// 5. 최신동영상 파트 데이터 태그 구성하여 화면출력하기 //////////
-// 코드랩핑구역 시작 ////////
+// 5. 최신동영상 파트 데이터 태그 구성하여 화면출력하기 ///
+// 코드랩핑구역 시작 //////////////////////////
 (() => {
   // 5-1. 변경대상: .clip-box
   const clipBox = myFn.qs(".clip-box");
@@ -177,25 +177,26 @@ introMv.onclick = () => {
   // 5-2. 생성코드 변수
   let hcode = `<ul>`;
 
-  // 데이터만큼 순회하여 li코드 만들기 ///////
+  // 데이터만큼 순회하여 li코드 만들기 ///
   // 데이터: dkbData.clipData
   dkbData.clipData.forEach((v) => {
     hcode += `
-      <li>
-        <div class="clip-mv-box">
-          <img
-            src="./images/clip_img/${v.idx}.jpg"
-            alt="${v.subtit}"
-          />
-        </div>
-        <h4>${v.subtit}</h4>
-        <h3>${v.title}</h3>
+    <li>
+      <div class="clip-mv-box">
+        <img
+          src="./images/clip_img/${v.idx}.jpg"
+          alt="${v.subtit}"
+        />
+      </div>
+      <h4>${v.subtit}</h4>
+      <h3>${v.title}</h3>
     </li>
     `;
-  }); ////////// forEach /////////////////
+  }); /////////// forEach /////////////////
 
   hcode += `</ul>`;
 
   // 5-3. 화면출력하기 ///////
   clipBox.innerHTML = hcode;
-})(); // 코드랩핑구역 종료 /////////
+})();
+// 코드랩핑구역 종료 //////////////////////////

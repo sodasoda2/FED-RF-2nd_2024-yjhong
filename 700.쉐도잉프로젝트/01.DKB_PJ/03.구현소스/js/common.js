@@ -15,28 +15,31 @@ import gnbData from "../data/gnb_data.js";
 console.log(gnbData);
 
 export default function setElement() {
-  // 1. 대상선정: #top-area, #ban-area, #spart-menu, #footer-area
-
+  // 1.대상선정: #top-area, #ban-area,
+  //          #spart-menu, #footer-area
   const topArea = mFn.qs("#top-area");
   const banArea = mFn.qs("#ban-area");
   const spartMenu = mFn.qs("#spart-menu");
   const footerArea = mFn.qs("#footer-area");
 
-  // 2. 코드 넣기 ///////
+  // 2. 코드넣기 ///////
   topArea.innerHTML = comData.topArea;
   banArea.innerHTML = comData.banArea;
   spartMenu.innerHTML = comData.spartMenu;
   footerArea.innerHTML = comData.footerArea;
+
   // 3. 기능처리 함수 호출하기
+
   // 3-1. GNB메뉴 만들기 함수 호출!
   makeMenu();
+
   // 3-2. slideFn 슬라이드 기능함수 호출!
   slideFn();
-} //////////// setElement 함수 ///////////////
+} /////////// setElement 함수 ///////////////
 
-// GNB메뉴코드 만들기 함수 ////////
+// [ GNB메뉴코드 만들기 함수 ] ///////
 function makeMenu() {
-  // 3-1.GNB 메뉴 코드 넣기 /////////////////
+  // GNB 메뉴 코드 넣기 /////////////////
   // 대상: .gnb
   // 데이터: gnbData는 객체니까 배열용 map()메서드 못씀!
   // 그래서 gnbData를 키배열로 변환해서 사용함!
@@ -81,6 +84,7 @@ function makeMenu() {
       `
       )
       .join("")}
-  </ul>  
+  </ul>
+    
 `;
-} /////////// makeMenu 함수 ///////////
+} ////////// makeMenu 함수 //////////
