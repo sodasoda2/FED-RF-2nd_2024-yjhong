@@ -6,6 +6,9 @@ import { headerScrollFn } from "./scroll.js";
 // 상단 메뉴 데이터 JS
 import * as header from "../data/header_data.js";
 
+// 현재 URL 가져오기 JS
+import { getUrl, urlRouting } from "./url.js";
+
 /****************************************************
  * 0. myFn 함수 생성
  *****************************************************/
@@ -71,8 +74,10 @@ hInfoTag.innerHTML = `
 <div class="inner">
   <div class="cont-box">
     <div class="col-2 logo">
-      <a href="#none">
-        <img src="images/${logoImg}.png" />
+      <a href="${getUrl() === "index" ? "./index.html" : "../index.html"}">
+      <img src="${
+        getUrl() === "index" ? "./images/" + logoImg + ".png" : "../images/" + logoImg + ".png"
+      }" />
       </a>
     </div>
     <div class="col-5 search">
@@ -100,50 +105,46 @@ const gnbTag = myFn.qs(".gnb");
 const gnbData = header.gnbData;
 
 // 1.3.2 gnb 태그 및 데이터 정상 출력 확인
-console.log("gnb 태그확인:", gnbTag, "\n", "gnb 데이터확인:", gnbData);
+// console.log("gnb 태그확인:", gnbTag, "\n", "gnb 데이터확인:", gnbData);
 
-// console.log("tt", header.gnbData[0].submenu[1]); // 지역별
-// console.log(
-//   "dd",
-//   gnbData.map((v, idx) => v.submenu[1])
-// ); // 지역별
-
-// 1.3.2. map 메서드로 순회하여 태그 및 데이터 삽입
+// 1.3.3. map 메서드로 순회하여 태그 및 데이터 삽입
 gnbTag.innerHTML = `
 <div class="inner">
   <nav class="gnb-menu">
     <ul>
-    ${gnbData.map(
-      (v) =>
-        `
+    ${gnbData
+      .map(
+        (v) =>
+          `
         <li>
           <a href="#">${v.title}</a>
           <!-- 서브메뉴 -->
           ${
-            v.submenu !== "없음"?
-            `
+            v.submenu !== "없음"
+              ? `
             <div class="smenu">
               <ol>
-              ${
-                v.submenu.map(sVal => `
+              ${v.submenu
+                .map(
+                  (sVal) => `
                 <li>
-                  <a href="./page/subpage1.html">${sVal}</a>
+                <a href="${urlRouting(v.id, sVal)}"> ${sVal} </a>
                 </li>
-                
-                `).join('')
-              }
-                
+                `
+                )
+                .join("")}
               </ol>
-          </div>
-            
-            `:''
+           </div>
+         `
+              : ""
           }
       </li>
     `
-    ).join('')}
+      )
+      .join("")}
     </ul>
-    </nav>
-    </div>
+  </nav>
+</div>
 `;
 
 // 상단 메뉴 스크롤시 이벤트 효과 함수 불러오기

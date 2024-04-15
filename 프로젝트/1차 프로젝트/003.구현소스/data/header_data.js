@@ -8,24 +8,34 @@ const hInfoData = {
 
 const gnbData = [
   {
+    id: "1",
     title: "구인정보",
     submenu: ["전체", "지역별", "분야별"],
+    url: ["/page/subpage.html", "#", "#"],
   },
   {
+    id: "2",
     title: "강사정보",
     submenu: ["전체", "지역별", "분야별"],
+    url: ["#", "#", "#"],
   },
   {
+    id: "3",
     title: "중고거래",
     submenu: ["전체", "지역별", "카테고리별"],
+    url: ["#", "#", "#"],
   },
   {
+    id: "4",
     title: "레슨멘토",
     submenu: ["전체", "지역별", "분야별"],
+    url: ["#", "#", "#"],
   },
   {
+    id: "5",
     title: "이력서 등록",
     submenu: ["없음"],
+    url: ["#"],
   },
 ];
 

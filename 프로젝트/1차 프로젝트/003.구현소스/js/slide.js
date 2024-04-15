@@ -1,4 +1,5 @@
-// * 메인페이지 배너 슬라이드 기능
+// 배너 슬라이드 기능 JS - slide.js
+
 export default function slideEvent() {
   // DOM 선택함수
   const banner = document.querySelector(".banner");

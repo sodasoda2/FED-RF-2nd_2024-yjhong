@@ -1,4 +1,6 @@
-/* 공통처리함수 불러오기 */
+// 서브페이지1 JS - subpage1.js
+
+// 공통처리 함수 js 불러오기 //
 import * as com from "./common.js";
 
 /* 레슨 데이터 불러오기 */
@@ -16,7 +18,6 @@ const data = lesson.jobSummaryInfoData;
 
 // 1-2 jobSummaryInfoData 삽입할 태그 불러오기
 const dlElements = com.myFn.qsa(".job-info-summary-tc dl");
-console.log(dlElements);
 
 // 1-3 html code 삽입 변수 초기화
 let hcode = "";

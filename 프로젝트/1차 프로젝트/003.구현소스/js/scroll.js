@@ -1,3 +1,5 @@
+// 상단메뉴 스크롤이벤트 JS - scroll.js
+
 window.addEventListener("scroll", headerScrollFn);
 
 function headerScrollFn() {
