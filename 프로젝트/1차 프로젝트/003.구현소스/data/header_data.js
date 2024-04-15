@@ -17,7 +17,7 @@ const gnbData = [
   },
   {
     title: "중고거래",
-    submenu: ["전체", "지역별", "분야별"],
+    submenu: ["전체", "지역별", "카테고리별"],
   },
   {
     title: "레슨멘토",
@@ -25,7 +25,7 @@ const gnbData = [
   },
   {
     title: "이력서 등록",
-    submenu: "없음",
+    submenu: ["없음"],
   },
 ];
 

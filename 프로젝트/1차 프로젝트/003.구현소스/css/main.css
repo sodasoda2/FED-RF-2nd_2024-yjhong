@@ -399,7 +399,7 @@ body * {
   text-align: center;
   line-height: 50px;
   filter: brightness(120%);
-  background: linear-gradient(to bottom, #41b8eb4d, rgba(243, 184, 236, 0.628));
+  background: linear-gradient(to bottom, #f250a14a, rgb(229 196 225 / 63%));
 }
 
 .mento-cont {

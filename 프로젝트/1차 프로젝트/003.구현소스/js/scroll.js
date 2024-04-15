@@ -1,7 +1,8 @@
-// window의 scroll 이벤트를 감지하여 헤더를 fixed로 변경하는 스크립트
-window.addEventListener("scroll", scrollFn);
+window.addEventListener("scroll", headerScrollFn);
 
-function scrollFn() {
+function headerScrollFn() {
+  // window의 scroll 이벤트를 감지하여 헤더를 fixed로 변경하는 스크립트
+
   const header = document.querySelector("header"); // 헤더 요소 선택
   const gnb = document.querySelector(".gnb-menu"); // GNB 메뉴 요소 선택
   const top = document.querySelector(".top-menu"); // LNB 메뉴 요소 선택
@@ -44,3 +45,5 @@ function scrollFn() {
     }
   }
 }
+
+export { headerScrollFn };

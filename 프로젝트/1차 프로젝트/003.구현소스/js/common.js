@@ -1,6 +1,9 @@
 // 공통처리 함수 JS - common.js
 
-// 헤더 데이터 불러오기
+// 상단 메뉴 스크롤 이벤트 JS
+import { headerScrollFn } from "./scroll.js";
+
+// 상단 메뉴 데이터 JS
 import * as header from "../data/header_data.js";
 
 /****************************************************
@@ -100,93 +103,44 @@ const gnbData = header.gnbData;
 console.log("gnb 태그확인:", gnbTag, "\n", "gnb 데이터확인:", gnbData);
 
 // console.log("tt", header.gnbData[0].submenu[1]); // 지역별
-console.log(
-  "dd",
-  gnbData.map((v, idx) => v, idx)
-); // 지역별
+// console.log(
+//   "dd",
+//   gnbData.map((v, idx) => v.submenu[1])
+// ); // 지역별
 
 // 1.3.2. map 메서드로 순회하여 태그 및 데이터 삽입
-gnbTag.innerHTML = `
-<div class="inner">
-  <nav class="gnb-menu">
-    <ul>
-    ${gnbData.map(
-      (v, idx) =>
-        `
-          <li>
-          <a href="#">구인정보</a>
-          <!-- 서브메뉴 -->
-          <div class="smenu">
-            <ol>
-              <li>
-                <a href="./page/subpage1.html">전체</a>
-              </li>
-              <li>
-                <a href="#">지역별</a>
-              </li>
-              <li>
-                <a href="#">분야별</a>
-              </li>
-            </ol>
-          </div>
-        </li>
-        <li>
-          <a href="#">강사정보</a>
-          <div class="smenu">
-            <ol>
-              <li>
-                <a href="#">전체</a>
-              </li>
-              <li>
-                <a href="#">지역별</a>
-              </li>
-              <li>
-                <a href="#">분야별</a>
-              </li>
-            </ol>
-          </div>
-        </li>
-        <li>
-          <a href="#">중고거래</a>
-          <div class="smenu">
-            <ol>
-              <li>
-                <a href="#">전체</a>
-              </li>
-              <li>
-                <a href="#">지역별</a>
-              </li>
-              <li>
-                <a href="#">분야별</a>
-              </li>
-            </ol>
-          </div>
-        </li>
-        <li>
-          <a href="#"> 레슨멘토 </a>
-          <!-- 서브메뉴 -->
-          <div class="smenu">
-            <ol>
-              <li>
-                <a href="#">전체</a>
-              </li>
-              <li>
-                <a href="#">지역별</a>
-              </li>
-              <li>
-                <a href="#">분야별</a>
-              </li>
-            </ol>
-          </div>
-        </li>
-        <li>
-          <a href="#"> 이력서 등록 </a>
-        </li>
-      </ul>
-      </nav>
-      </div>
-    `
-    )}
-`;
+// gnbTag.innerHTML = `
+// <div class="inner">
+//   <nav class="gnb-menu">
+//     <ul>
+//     ${gnbData.map(
+//       (v) =>
+//         `
+//         <li>
+//           <a href="#">${v.title}</a>
+//           <!-- 서브메뉴 -->
+//           <div class="smenu">
+//             <ol>
+//               <li>
+//                 <a href="./page/subpage1.html">전체</a>
+//               </li>
+//               <li>
+//                 <a href="#">지역별</a>
+//               </li>
+//               <li>
+//                 <a href="#">분야별</a>
+//               </li>
+//             </ol>
+//         </div>
+//       </li>
+//     </ul>
+//     </nav>
+//     </div>
+//     `
+//     )}
+// `;
+
+// 상단 메뉴 스크롤시 이벤트 효과 함수 불러오기
+headerScrollFn();
 
 export { myFn };
