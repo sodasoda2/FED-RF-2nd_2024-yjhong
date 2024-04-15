@@ -109,36 +109,42 @@ console.log("gnb 태그확인:", gnbTag, "\n", "gnb 데이터확인:", gnbData);
 // ); // 지역별
 
 // 1.3.2. map 메서드로 순회하여 태그 및 데이터 삽입
-// gnbTag.innerHTML = `
-// <div class="inner">
-//   <nav class="gnb-menu">
-//     <ul>
-//     ${gnbData.map(
-//       (v) =>
-//         `
-//         <li>
-//           <a href="#">${v.title}</a>
-//           <!-- 서브메뉴 -->
-//           <div class="smenu">
-//             <ol>
-//               <li>
-//                 <a href="./page/subpage1.html">전체</a>
-//               </li>
-//               <li>
-//                 <a href="#">지역별</a>
-//               </li>
-//               <li>
-//                 <a href="#">분야별</a>
-//               </li>
-//             </ol>
-//         </div>
-//       </li>
-//     </ul>
-//     </nav>
-//     </div>
-//     `
-//     )}
-// `;
+gnbTag.innerHTML = `
+<div class="inner">
+  <nav class="gnb-menu">
+    <ul>
+    ${gnbData.map(
+      (v) =>
+        `
+        <li>
+          <a href="#">${v.title}</a>
+          <!-- 서브메뉴 -->
+          ${
+            v.submenu !== "없음"?
+            `
+            <div class="smenu">
+              <ol>
+              ${
+                v.submenu.map(sVal => `
+                <li>
+                  <a href="./page/subpage1.html">${sVal}</a>
+                </li>
+                
+                `).join('')
+              }
+                
+              </ol>
+          </div>
+            
+            `:''
+          }
+      </li>
+    `
+    ).join('')}
+    </ul>
+    </nav>
+    </div>
+`;
 
 // 상단 메뉴 스크롤시 이벤트 효과 함수 불러오기
 headerScrollFn();
