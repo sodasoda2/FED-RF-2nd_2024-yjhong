@@ -381,12 +381,13 @@ body * {
 }
 
 .product .location i {
-  padding: 0 2px 0 8px;
-  font-size: 18px;
+  padding: 0 1px 0 8px;
+  font-size: 15px;
 }
 
 .product .location p {
   padding: 5px 0 5px 6px;
+  font-size: 13px;
 }
 
 .mentos {
@@ -399,7 +400,7 @@ body * {
   text-align: center;
   line-height: 50px;
   filter: brightness(120%);
-  background: linear-gradient(to bottom, #f250a14a, rgb(229 196 225 / 63%));
+  background: linear-gradient(to bottom, #ca72d954, rgb(229 196 225 / 63%));
 }
 
 .mento-cont {

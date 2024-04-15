@@ -7,9 +7,8 @@ import * as com from "./common.js";
 import * as lesson from "../data/lesson_data.js";
 
 /****************************************************
- * 1. 채용 요약 정보 영역
+ * 1. 채용 요약 정보
  *****************************************************/
-
 // 1-0 데이터 출력확인
 // console.log(lesson.jobSummaryInfoData);
 
@@ -30,10 +29,10 @@ hcode = `
     </dt>
     <dd>
         <span class="job-info-summary-count">${data[0].count}</span>
-    </dd>`;
+    </dd>
+`;
 
-// 메인페이지에서 에러남 수정필요
-// dlElements[0].innerHTML += hcode;
+dlElements[0].innerHTML += hcode;
 
 // 두 번째 dl에 두 번째 데이터 추가
 hcode = `
@@ -44,8 +43,5 @@ hcode = `
         <span class="job-info-summary-count">${data[1].count}</span>
     </dd>
 `;
-// 메인페이지에서 에러남 수정필요
-// dlElements[1].innerHTML += hcode;
 
-// 2-5 데이터 출력확인
-// console.log(hcode);
+dlElements[1].innerHTML += hcode;

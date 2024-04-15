@@ -85,3 +85,7 @@
 .job-list-title span:nth-child(3) {
   flex: 2;
 }
+
+.job-info-location-tc {
+  display: flex;
+}

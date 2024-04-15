@@ -1,11 +1,6 @@
 // URL 정보 js - url.js
 const currentUrl = window.location.href;
-const baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf("/") + 1);
-const currentPath = window.location.pathname;
-
-console.log("url", currentUrl);
-console.log("baseUrl", baseUrl);
-console.log("path", currentPath);
+const baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf("/") + 1).replace("/page", "");
 
 // 1. 현재 페이지 url 이름 가져오기
 const getUrl = () => {
