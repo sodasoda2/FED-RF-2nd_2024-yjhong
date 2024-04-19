@@ -1,4 +1,4 @@
-// 레슨모아 PJ GNB메뉴 데이터 ////
+// 상단 헤더 데이터 - header_data.js //////
 
 const lnbData = ["고객센터", "광고문의", "제휴문의"];
 
@@ -35,3 +35,5 @@ const gnbData = [
 ];
 
 export { lnbData, hInfoData, gnbData };
+
+

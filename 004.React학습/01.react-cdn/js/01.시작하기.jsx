@@ -1,0 +1,72 @@
+// 01.시작하기 리액트 JS
+
+/* 
+    html 태그와 JS문법을 따옴표없이 사용하는 JSX문법을 사용한다!
+    JSX(Javascript XML) 문법을 쓰는 파일은 .js대신 .jsx확장자사용!
+    -> return 키워드 사용은 따옴표없이 바로 소괄호롤 묶어사용
+    (소괄호 생략 가능!)
+
+    [[ 주의사항 ]]
+    1. 함수를 만들경우 반드시 대문자로 시작해야 호출됨!(정해진규칙)
+    2. 홀로태그를 사용할때는 마지막에 스스로 닫기를 꼭 해줌!(/>)
+    3. 함수 내부의 리턴값으로 만든 요소는 반드시 최상위요소가 하나여여함!
+    -> div와 같은 태그로 최상위를 만들어서 내보내기를 한다
+    -> 그런데 이런 불필요한 태그 구조를 원치 않는 경우
+    <React.Fragment> </React.Fragment>를 사용하면
+    내보낼때 하나로 묶는 역할만 하고 실제로 태그는 출력안됨!
+    (참고: CLI환경에서는 빈태그를 대신 사용 가능함 <></>)
+*/
+
+// 생성자 함수를 만들어서 사용한다!
+// 대문자로 시작하는 이름을 사용한다!
+
+function MyFirstReact() {
+  // 목적: 코드를 만들어서 리턴한다!
+  return (
+    <React.Fragment>
+      <h1>나는 리액트가 좋아질 것 같다!!! ㅎㅎㅎ</h1>
+      <h2>
+        [리액트란 무엇인가?]
+        <br />
+        <br /># 프론트엔드 JS 라이브러리다! # 사용자 UI의 구성요소를 빌드하기 위한도구 <br />
+        [ 작동원리 ] <br />
+        <br />
+        # 가상돔(Virtual DOM)을 사용하여 최소의 html리소스를 사용함으로 <br />
+        빠르고 쉽게 UI화면의 구성한다! <br /># 가상돔은 실제DOM을 변경하기전에 메모리상에서 구성하는
+        가짜 DOM이다! <br />
+        # 변경사항을 한번에 구성하여 반영하기 위한도구다! <br />
+        # 리액트는 변경하고자 하는 부분만 업데이트 가능함! <br />
+        <ul>
+          <li>리액트 라이브러리</li>
+          <li>리액트돔 라이브러리</li>
+          <li>바벨 라이브러리</li>
+        </ul>
+      </h2>
+      <img
+        src="data:image/png;base64,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"
+        alt="이미지"
+        width="400"
+        height="350"
+      />
+    </React.Fragment>
+  );
+} //////// MyFirstReact 생성자 함수 ////////
+
+// 리액트 html대상요소에 삽입하기
+/* 
+    가상돔을 셋팅하는 리액트 객체를 호출한다! -> ReactDOM
+    render() -> 요소를 변경하는 메서드
+
+    [호출형태]
+    ReactDOM.render(
+        요소를 리턴하는 함수명으로 된 홀로태그,대상요소)
+    __________________________________________
+
+    예컨데 함수명이 MyFirstReact이므로 
+    요소를 리턴하는 함수명으로 된 홀로태그는? <MyFirstReact />
+
+    그리고 대상요소는 JS문법으로 요소를 선택함!
+    document.querySelector("#root")
+*/
+
+ReactDOM.render(<MyFirstReact />, document.querySelector("#mydiv"));
